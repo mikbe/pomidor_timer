@@ -201,7 +201,7 @@
 												<string key="NSFrame">{{16, 16}, {128, 62}}</string>
 												<reference key="NSSuperview" ref="112634204"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="644429117"/>
+												<reference key="NSNextKeyView" ref="73102887"/>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="810225123">
@@ -226,21 +226,21 @@
 													</object>
 												</object>
 											</object>
-											<object class="NSButton" id="644429117">
+											<object class="NSButton" id="73102887">
 												<reference key="NSNextResponder" ref="112634204"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{150, 15}, {65, 62}}</string>
+												<string key="NSFrame">{{150, 16}, {65, 62}}</string>
 												<reference key="NSSuperview" ref="112634204"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="170621708"/>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<bool key="NSEnabled">YES</bool>
-												<object class="NSButtonCell" key="NSCell" id="821504428">
+												<object class="NSButtonCell" key="NSCell" id="350669585">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">134217728</int>
 													<string key="NSContents">&gt;&gt;</string>
 													<reference key="NSSupport" ref="630196764"/>
-													<reference key="NSControlView" ref="644429117"/>
+													<reference key="NSControlView" ref="73102887"/>
 													<int key="NSButtonFlags">-2036580097</int>
 													<int key="NSButtonFlags2">160</int>
 													<string key="NSAlternateContents"/>
@@ -957,7 +957,7 @@
 																		</object>
 																		<object class="NSAttributedString" key="NS.nan">
 																			<string key="NSString">NaN</string>
-																			<object class="NSDictionary" key="NSAttributes" id="370678840">
+																			<object class="NSDictionary" key="NSAttributes" id="972383654">
 																				<bool key="EncodedWithXMLCoder">YES</bool>
 																				<object class="NSArray" key="dict.sortedKeys" id="0">
 																					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1082,7 +1082,7 @@
 																		</object>
 																		<object class="NSAttributedString" key="NS.nan">
 																			<string key="NSString">NaN</string>
-																			<reference key="NSAttributes" ref="370678840"/>
+																			<reference key="NSAttributes" ref="972383654"/>
 																		</object>
 																		<reference key="NS.min" ref="489121040"/>
 																		<reference key="NS.max" ref="489121040"/>
@@ -3432,7 +3432,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">fastForward:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="644429117"/>
+						<reference key="destination" ref="73102887"/>
 					</object>
 					<int key="connectionID">759</int>
 				</object>
@@ -4521,7 +4521,7 @@
 							<reference ref="472363088"/>
 							<reference ref="170621708"/>
 							<reference ref="276512115"/>
-							<reference ref="644429117"/>
+							<reference ref="73102887"/>
 						</object>
 						<reference key="parent" ref="341940634"/>
 					</object>
@@ -4882,17 +4882,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">756</int>
-						<reference key="object" ref="644429117"/>
+						<reference key="object" ref="73102887"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="821504428"/>
+							<reference ref="350669585"/>
 						</object>
 						<reference key="parent" ref="112634204"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">757</int>
-						<reference key="object" ref="821504428"/>
-						<reference key="parent" ref="644429117"/>
+						<reference key="object" ref="350669585"/>
+						<reference key="parent" ref="73102887"/>
 					</object>
 				</object>
 			</object>
