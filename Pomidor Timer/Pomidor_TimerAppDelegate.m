@@ -12,10 +12,11 @@
 @interface Pomidor_TimerAppDelegate()
 
 - (void)setClock;
-- (void)setCycle;
+- (void)setWorkCountDisplay;
 - (void)setCountdown;
 - (void)setBubbleIndicators;
-- (void)resetBubbleIndicators;
+
+- (void)setStateText;
 
 @end
 
@@ -23,57 +24,65 @@
 
 @synthesize window;
 
--(void)setClock {
-    int secs = countDown % 60;
-    int mins = countDown / 60;
-    [timerDisplay setStringValue:[NSString stringWithFormat:@"%02i:%02i", mins, secs]];
-}
 
-- (void)setCycle {
-    [cycleDisplay setStringValue:[NSString stringWithFormat:@"%02i", cycleCount]];
-}
-
-- (void)setCountdown {
-    countDown = MAX_TIMER;
-    NSLog(@"count: %i; mod8: %i", cycleCount, cycleCount % 8);
-    if (cycleCount > 0)
-    {
-        if (cycleCount % 4 == 0) {
-            countDown = [longBreak doubleValue] * 1;
-        } else if (cycleCount % 2 != 0) {
-            countDown = [shortBreak doubleValue] * 1;
-        }
-    }
-}
-
+// Init
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // I thought Red would be cute but it's just annoying
     //[window setBackgroundColor:[NSColor colorWithCalibratedRed:1 green:0.0 blue:0.0 alpha:0.75]];
     
     alarmController = [[SoundController alloc] initWithSoundName:@"Purr" volume:[alarmVolume doubleValue]];
     tickController  = [[SoundController alloc] initWithSoundName:@"Tink" volume:[tickVolume doubleValue]];
+    state = [WorkStateModel new];
     [self resetTimer:nil]; 
 }
 
-- (IBAction)startStopTimer:(id)sender {
-    if (startStopTimerButton.title == @"stop") {
-        [self stopTimer];
+
+- (void)setStateText {
+    NSLog(@"State: %@", [state stateMessage]);
+    [statusText setStringValue:[state stateMessage]];
+}
+
+-(void)setClock {
+    int secs = countDown % 60;
+    int mins = countDown / 60;
+    [timerDisplay setStringValue:[NSString stringWithFormat:@"%02i:%02i", mins, secs]];
+}
+
+- (void)setWorkCountDisplay {
+    [workCountDisplay setStringValue:[NSString stringWithFormat:@"%02i", [state workCount]]];
+}
+
+- (void)setCountdown {
+    countDown = MAX_TIMER;
+    if ([state currentState] == workState_StartLongBreak) {
+        countDown = [longBreak doubleValue] * 1;
+    } else if ([state currentState] == workState_StartShortBreak) {
+        countDown = [shortBreak doubleValue] * 1;
+    }
+}
+
+- (IBAction)startPauseTimer:(id)sender {
+    if (startPauseTimerButton.title == @"pause") {
+        [self pauseTimer];
     }
     else  {
         [self startTimer];
     }
+    [self setStateText];
 }
 
-- (void)stopTimer {
+- (void)pauseTimer {
     [timer invalidate];
     timer = nil;
-    startStopTimerButton.title = @"start";
+    startPauseTimerButton.title = @"start";
+    [state pause];
 }
 
 - (void)startTimer {
-    [self setCountdown];
+    [self setClock];
     [alarmController stopSoundLoop];
-    startStopTimerButton.title = @"stop";
+    startPauseTimerButton.title = @"pause";
+    [state start];
     timer = [NSTimer scheduledTimerWithTimeInterval:1
                                              target:self
                                            selector:@selector(timerFiredMethod:)
@@ -82,33 +91,23 @@
 }
 
 - (void)setBubbleIndicators {
-    if ([bubbleCounter4 state]) {
-        [self resetBubbleIndicators];
-    } else if ([bubbleCounter3 state]) {
-        [bubbleCounter4 setState:NSOnState];   
-    } else if ([bubbleCounter2 state]) {
-        [bubbleCounter3 setState:NSOnState];   
-    } else if ([bubbleCounter1 state]) {
-        [bubbleCounter2 setState:NSOnState];   
-    } else {
-        [bubbleCounter1 setState:NSOnState];   
+    for (int cycleCount = 0; cycleCount < 4; cycleCount++) {
+        int bubbleState = NSOffState;
+        int workCycle = ([state workCount] - 1);
+        if ( workCycle > -1 && (workCycle % 4) > cycleCount ) {
+            bubbleState = NSOnState;
+        }
+        [[self valueForKey:[NSString stringWithFormat:@"bubbleCounter%i", cycleCount]] setState:bubbleState];
     }
 }
 
-- (void)resetBubbleIndicators {
-    [bubbleCounter1 setState:NSOffState];
-    [bubbleCounter2 setState:NSOffState];
-    [bubbleCounter3 setState:NSOffState];
-    [bubbleCounter4 setState:NSOffState];   
-}
-
 - (IBAction)resetTimer:(id)sender {
-    countDown   = MAX_TIMER;
-    cycleCount  = 0;
-    [self resetBubbleIndicators];
-    [self stopTimer];
+    [state reset];
+    [self setCountdown];
+    [self setStateText];
+    [self setBubbleIndicators];
+    [self pauseTimer];
     [self setClock];
-    [self setCycle];
     [alarmController stopSoundLoop];
 }
 
@@ -124,10 +123,13 @@
     countDown--;
     [self setClock];
     if (countDown == 0) {
-        cycleCount++;
+        [state stop];
+        [self setStateText];
+        [self setWorkCountDisplay];
         [self setBubbleIndicators];
+        [self pauseTimer];
+        [self setCountdown];
         [alarmController startSoundLoop];
-        [self startStopTimer:nil];
     } else {
         [tickController playSoundNow];
     }

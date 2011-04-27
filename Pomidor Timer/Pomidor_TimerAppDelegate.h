@@ -9,41 +9,47 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SoundController.h"
+#import "WorkStateModel.h"
 
 @interface Pomidor_TimerAppDelegate : NSObject <NSApplicationDelegate> {
     
     IBOutlet NSSlider       *alarmVolume;
     IBOutlet NSSlider       *tickVolume;
     IBOutlet NSTextField    *timerDisplay;
-    IBOutlet NSButton       *startStopTimerButton;
+    IBOutlet NSButton       *startPauseTimerButton;
     IBOutlet NSTextField    *longBreak;
     IBOutlet NSTextField    *shortBreak;
     
-    IBOutlet NSTextField    *cycleDisplay;
+    IBOutlet NSTextField    *statusText;
     
+    IBOutlet NSTextField    *workCountDisplay;
+    
+    IBOutlet NSButton       *bubbleCounter0;
     IBOutlet NSButton       *bubbleCounter1;
     IBOutlet NSButton       *bubbleCounter2;
     IBOutlet NSButton       *bubbleCounter3;
-    IBOutlet NSButton       *bubbleCounter4;
     
 @private
     NSWindow        *window;
     NSTimer         *timer;
     int             countDown;
-    int             cycleCount; // How many times we've done a 25 min cycle
     SoundController *alarmController;
     SoundController *tickController;
     
-    #define         MAX_TIMER (4 * 1)
+    WorkStateModel      *state;
+    
+    #define         MAX_TIMER (5 * 1)
+
+    
 }
 
 @property (assign) IBOutlet NSWindow *window;
 
-- (IBAction)startStopTimer:(id)sender;
+- (IBAction)startPauseTimer:(id)sender;
 - (IBAction)resetTimer:(id)sender;
 - (IBAction)alarmVolumeChange:(id)sender;
 - (IBAction)tickVolumeChanged:(id)sender;
 - (void)startTimer;
-- (void)stopTimer;
+- (void)pauseTimer;
 
 @end

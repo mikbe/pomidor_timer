@@ -88,7 +88,7 @@
 }
 
 -(void)playSoundWithSoundName:(NSString*)soundName volume:(double)volume delay:(int)delay {
-    [NSTimer scheduledTimerWithTimeInterval: delay
+    timer = [NSTimer scheduledTimerWithTimeInterval: delay
                                      target: self
                                    selector: @selector(playSoundThreaded)
                                    userInfo: nil
@@ -103,6 +103,7 @@
     [sound setDelegate: self];
     [sound setVolume: _volume];
     [sound play];
+    timer = nil;
 }
 
 -(void)startSoundLoop
@@ -113,6 +114,10 @@
 
 -(void)stopSoundLoop
 {
+    if (timer) {
+        [timer invalidate];
+        timer = nil;
+    }
     repeat = NO;
 }
 

@@ -10,6 +10,7 @@
 		323B536F1367A2F900CC9AFA /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 323B536E1367A2F900CC9AFA /* README.markdown */; };
 		323B53721367A8C700CC9AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 323B53711367A8C700CC9AFA /* LICENSE */; };
 		32460E2F13678BF7007D9AC9 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32460E2E13678BF6007D9AC9 /* SoundController.m */; };
+		32C1ECBD13686B12009981E2 /* WorkStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C1ECBC13686B12009981E2 /* WorkStateModel.m */; };
 		32D157BD133ECB5900D6B7AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D157BC133ECB5900D6B7AF /* Cocoa.framework */; };
 		32D157C7133ECB5900D6B7AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D157C5133ECB5900D6B7AF /* InfoPlist.strings */; };
 		32D157CA133ECB5900D6B7AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D157C9133ECB5900D6B7AF /* main.m */; };
@@ -23,6 +24,8 @@
 		323B53711367A8C700CC9AFA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		32460E2D13678BF6007D9AC9 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
 		32460E2E13678BF6007D9AC9 /* SoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundController.m; sourceTree = "<group>"; };
+		32C1ECBB13686B12009981E2 /* WorkStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = WorkStateModel.h; sourceTree = "<group>"; };
+		32C1ECBC13686B12009981E2 /* WorkStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkStateModel.m; sourceTree = "<group>"; };
 		32D157B8133ECB5900D6B7AF /* Pomidor Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomidor Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D157BC133ECB5900D6B7AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		32D157BF133ECB5900D6B7AF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,8 @@
 				32D157C3133ECB5900D6B7AF /* Supporting Files */,
 				32460E2D13678BF6007D9AC9 /* SoundController.h */,
 				32460E2E13678BF6007D9AC9 /* SoundController.m */,
+				32C1ECBB13686B12009981E2 /* WorkStateModel.h */,
+				32C1ECBC13686B12009981E2 /* WorkStateModel.m */,
 			);
 			path = "Pomidor Timer";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				32D157CA133ECB5900D6B7AF /* main.m in Sources */,
 				32D157D0133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.m in Sources */,
 				32460E2F13678BF7007D9AC9 /* SoundController.m in Sources */,
+				32C1ECBD13686B12009981E2 /* WorkStateModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,9 @@
 
 @interface SoundController : NSObject {
 @private
-    NSSound*        sound;
-    NSDictionary*   userInfo;
-    
+    NSSound         *sound;
+    NSTimer         *timer;
+
     double          _volume;
     
 }
