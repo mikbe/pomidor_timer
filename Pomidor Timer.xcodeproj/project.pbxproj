@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323B536F1367A2F900CC9AFA /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 323B536E1367A2F900CC9AFA /* README.markdown */; };
+		323B53721367A8C700CC9AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 323B53711367A8C700CC9AFA /* LICENSE */; };
 		32460E2F13678BF7007D9AC9 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32460E2E13678BF6007D9AC9 /* AlarmController.m */; };
 		32D157BD133ECB5900D6B7AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D157BC133ECB5900D6B7AF /* Cocoa.framework */; };
 		32D157C7133ECB5900D6B7AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D157C5133ECB5900D6B7AF /* InfoPlist.strings */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		323B536E1367A2F900CC9AFA /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		323B53711367A8C700CC9AFA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		32460E2D13678BF6007D9AC9 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
 		32460E2E13678BF6007D9AC9 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
 		32D157B8133ECB5900D6B7AF /* Pomidor Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomidor Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +56,8 @@
 				32D157C2133ECB5900D6B7AF /* Pomidor Timer */,
 				32D157BB133ECB5900D6B7AF /* Frameworks */,
 				32D157B9133ECB5900D6B7AF /* Products */,
+				323B536E1367A2F900CC9AFA /* README.markdown */,
+				323B53711367A8C700CC9AFA /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +163,8 @@
 				32D157C7133ECB5900D6B7AF /* InfoPlist.strings in Resources */,
 				32D157CD133ECB5900D6B7AF /* Credits.rtf in Resources */,
 				32D157D3133ECB5900D6B7AF /* MainMenu.xib in Resources */,
+				323B536F1367A2F900CC9AFA /* README.markdown in Resources */,
+				323B53721367A8C700CC9AFA /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
