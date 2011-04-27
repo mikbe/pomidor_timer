@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Pomidor Timer' target in the 'Pomidor Timer' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

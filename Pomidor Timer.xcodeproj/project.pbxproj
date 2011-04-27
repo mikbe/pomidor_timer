@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32460E2F13678BF7007D9AC9 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32460E2E13678BF6007D9AC9 /* AlarmController.m */; };
+		32D157BD133ECB5900D6B7AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D157BC133ECB5900D6B7AF /* Cocoa.framework */; };
+		32D157C7133ECB5900D6B7AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D157C5133ECB5900D6B7AF /* InfoPlist.strings */; };
+		32D157CA133ECB5900D6B7AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D157C9133ECB5900D6B7AF /* main.m */; };
+		32D157CD133ECB5900D6B7AF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 32D157CB133ECB5900D6B7AF /* Credits.rtf */; };
+		32D157D0133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D157CF133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.m */; };
+		32D157D3133ECB5900D6B7AF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D157D1133ECB5900D6B7AF /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32460E2D13678BF6007D9AC9 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
+		32460E2E13678BF6007D9AC9 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
+		32D157B8133ECB5900D6B7AF /* Pomidor Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pomidor Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D157BC133ECB5900D6B7AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		32D157BF133ECB5900D6B7AF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		32D157C0133ECB5900D6B7AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		32D157C1133ECB5900D6B7AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		32D157C4133ECB5900D6B7AF /* Pomidor Timer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pomidor Timer-Info.plist"; sourceTree = "<group>"; };
+		32D157C6133ECB5900D6B7AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32D157C8133ECB5900D6B7AF /* Pomidor Timer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pomidor Timer-Prefix.pch"; sourceTree = "<group>"; };
+		32D157C9133ECB5900D6B7AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32D157CC133ECB5900D6B7AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		32D157CE133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pomidor_TimerAppDelegate.h; sourceTree = "<group>"; };
+		32D157CF133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pomidor_TimerAppDelegate.m; sourceTree = "<group>"; };
+		32D157D2133ECB5900D6B7AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32D157B5133ECB5900D6B7AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D157BD133ECB5900D6B7AF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32D157AD133ECB5900D6B7AF = {
+			isa = PBXGroup;
+			children = (
+				32D157C2133ECB5900D6B7AF /* Pomidor Timer */,
+				32D157BB133ECB5900D6B7AF /* Frameworks */,
+				32D157B9133ECB5900D6B7AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32D157B9133ECB5900D6B7AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32D157B8133ECB5900D6B7AF /* Pomidor Timer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32D157BB133ECB5900D6B7AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32D157BC133ECB5900D6B7AF /* Cocoa.framework */,
+				32D157BE133ECB5900D6B7AF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32D157BE133ECB5900D6B7AF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32D157BF133ECB5900D6B7AF /* AppKit.framework */,
+				32D157C0133ECB5900D6B7AF /* CoreData.framework */,
+				32D157C1133ECB5900D6B7AF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32D157C2133ECB5900D6B7AF /* Pomidor Timer */ = {
+			isa = PBXGroup;
+			children = (
+				32D157CE133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.h */,
+				32D157CF133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.m */,
+				32D157D1133ECB5900D6B7AF /* MainMenu.xib */,
+				32D157C3133ECB5900D6B7AF /* Supporting Files */,
+				32460E2D13678BF6007D9AC9 /* AlarmController.h */,
+				32460E2E13678BF6007D9AC9 /* AlarmController.m */,
+			);
+			path = "Pomidor Timer";
+			sourceTree = "<group>";
+		};
+		32D157C3133ECB5900D6B7AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32D157C4133ECB5900D6B7AF /* Pomidor Timer-Info.plist */,
+				32D157C5133ECB5900D6B7AF /* InfoPlist.strings */,
+				32D157C8133ECB5900D6B7AF /* Pomidor Timer-Prefix.pch */,
+				32D157C9133ECB5900D6B7AF /* main.m */,
+				32D157CB133ECB5900D6B7AF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32D157B7133ECB5900D6B7AF /* Pomidor Timer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32D157D6133ECB5900D6B7AF /* Build configuration list for PBXNativeTarget "Pomidor Timer" */;
+			buildPhases = (
+				32D157B4133ECB5900D6B7AF /* Sources */,
+				32D157B5133ECB5900D6B7AF /* Frameworks */,
+				32D157B6133ECB5900D6B7AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pomidor Timer";
+			productName = "Pomidor Timer";
+			productReference = 32D157B8133ECB5900D6B7AF /* Pomidor Timer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32D157AF133ECB5900D6B7AF /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 32D157B2133ECB5900D6B7AF /* Build configuration list for PBXProject "Pomidor Timer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 32D157AD133ECB5900D6B7AF;
+			productRefGroup = 32D157B9133ECB5900D6B7AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32D157B7133ECB5900D6B7AF /* Pomidor Timer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32D157B6133ECB5900D6B7AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D157C7133ECB5900D6B7AF /* InfoPlist.strings in Resources */,
+				32D157CD133ECB5900D6B7AF /* Credits.rtf in Resources */,
+				32D157D3133ECB5900D6B7AF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32D157B4133ECB5900D6B7AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D157CA133ECB5900D6B7AF /* main.m in Sources */,
+				32D157D0133ECB5900D6B7AF /* Pomidor_TimerAppDelegate.m in Sources */,
+				32460E2F13678BF7007D9AC9 /* AlarmController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		32D157C5133ECB5900D6B7AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D157C6133ECB5900D6B7AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		32D157CB133ECB5900D6B7AF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D157CC133ECB5900D6B7AF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		32D157D1133ECB5900D6B7AF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D157D2133ECB5900D6B7AF /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32D157D4133ECB5900D6B7AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		32D157D5133ECB5900D6B7AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		32D157D7133ECB5900D6B7AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pomidor Timer/Pomidor Timer-Prefix.pch";
+				INFOPLIST_FILE = "Pomidor Timer/Pomidor Timer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		32D157D8133ECB5900D6B7AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pomidor Timer/Pomidor Timer-Prefix.pch";
+				INFOPLIST_FILE = "Pomidor Timer/Pomidor Timer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32D157B2133ECB5900D6B7AF /* Build configuration list for PBXProject "Pomidor Timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32D157D4133ECB5900D6B7AF /* Debug */,
+				32D157D5133ECB5900D6B7AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32D157D6133ECB5900D6B7AF /* Build configuration list for PBXNativeTarget "Pomidor Timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32D157D7133ECB5900D6B7AF /* Debug */,
+				32D157D8133ECB5900D6B7AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32D157AF133ECB5900D6B7AF /* Project object */;
+}
