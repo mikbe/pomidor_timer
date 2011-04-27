@@ -68,6 +68,10 @@
     [self setStateText];
 }
 
+- (IBAction)fastForward:(id)sender {
+    countDown = 1;
+}
+
 - (void)pauseTimer {
     [timer invalidate];
     timer = nil;

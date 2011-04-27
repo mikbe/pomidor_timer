@@ -201,7 +201,7 @@
 												<string key="NSFrame">{{16, 16}, {128, 62}}</string>
 												<reference key="NSSuperview" ref="112634204"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="516193887"/>
+												<reference key="NSNextKeyView" ref="644429117"/>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="810225123">
@@ -226,21 +226,21 @@
 													</object>
 												</object>
 											</object>
-											<object class="NSButton" id="516193887">
+											<object class="NSButton" id="644429117">
 												<reference key="NSNextResponder" ref="112634204"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{150, 16}, {65, 62}}</string>
+												<string key="NSFrame">{{150, 15}, {65, 62}}</string>
 												<reference key="NSSuperview" ref="112634204"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="170621708"/>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<bool key="NSEnabled">YES</bool>
-												<object class="NSButtonCell" key="NSCell" id="104749968">
+												<object class="NSButtonCell" key="NSCell" id="821504428">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">134217728</int>
 													<string key="NSContents">&gt;&gt;</string>
 													<reference key="NSSupport" ref="630196764"/>
-													<reference key="NSControlView" ref="516193887"/>
+													<reference key="NSControlView" ref="644429117"/>
 													<int key="NSButtonFlags">-2036580097</int>
 													<int key="NSButtonFlags2">160</int>
 													<string key="NSAlternateContents"/>
@@ -957,7 +957,7 @@
 																		</object>
 																		<object class="NSAttributedString" key="NS.nan">
 																			<string key="NSString">NaN</string>
-																			<object class="NSDictionary" key="NSAttributes" id="141399195">
+																			<object class="NSDictionary" key="NSAttributes" id="370678840">
 																				<bool key="EncodedWithXMLCoder">YES</bool>
 																				<object class="NSArray" key="dict.sortedKeys" id="0">
 																					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1082,7 +1082,7 @@
 																		</object>
 																		<object class="NSAttributedString" key="NS.nan">
 																			<string key="NSString">NaN</string>
-																			<reference key="NSAttributes" ref="141399195"/>
+																			<reference key="NSAttributes" ref="370678840"/>
 																		</object>
 																		<reference key="NS.min" ref="489121040"/>
 																		<reference key="NS.max" ref="489121040"/>
@@ -3430,11 +3430,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">startPauseTimer:</string>
+						<string key="label">fastForward:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="516193887"/>
+						<reference key="destination" ref="644429117"/>
 					</object>
-					<int key="connectionID">758</int>
+					<int key="connectionID">759</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4521,7 +4521,7 @@
 							<reference ref="472363088"/>
 							<reference ref="170621708"/>
 							<reference ref="276512115"/>
-							<reference ref="516193887"/>
+							<reference ref="644429117"/>
 						</object>
 						<reference key="parent" ref="341940634"/>
 					</object>
@@ -4882,17 +4882,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">756</int>
-						<reference key="object" ref="516193887"/>
+						<reference key="object" ref="644429117"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="104749968"/>
+							<reference ref="821504428"/>
 						</object>
 						<reference key="parent" ref="112634204"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">757</int>
-						<reference key="object" ref="104749968"/>
-						<reference key="parent" ref="516193887"/>
+						<reference key="object" ref="821504428"/>
+						<reference key="parent" ref="644429117"/>
 					</object>
 				</object>
 			</object>
@@ -5531,7 +5531,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">758</int>
+			<int key="maxID">759</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5611,12 +5611,14 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alarmVolumeChange:</string>
+							<string>fastForward:</string>
 							<string>resetTimer:</string>
 							<string>startPauseTimer:</string>
 							<string>tickVolumeChanged:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -5628,6 +5630,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alarmVolumeChange:</string>
+							<string>fastForward:</string>
 							<string>resetTimer:</string>
 							<string>startPauseTimer:</string>
 							<string>tickVolumeChanged:</string>
@@ -5636,6 +5639,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">alarmVolumeChange:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">fastForward:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

@@ -46,9 +46,12 @@
 @property (assign) IBOutlet NSWindow *window;
 
 - (IBAction)startPauseTimer:(id)sender;
+- (IBAction)fastForward:(id)sender;
 - (IBAction)resetTimer:(id)sender;
+
 - (IBAction)alarmVolumeChange:(id)sender;
 - (IBAction)tickVolumeChanged:(id)sender;
+
 - (void)startTimer;
 - (void)pauseTimer;
 
