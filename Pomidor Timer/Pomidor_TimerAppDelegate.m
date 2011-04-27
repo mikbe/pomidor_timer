@@ -15,6 +15,7 @@
 - (void)setWorkCountDisplay;
 - (void)setCountdown;
 - (void)setBubbleIndicators;
+- (void)resetBubbleIndicators;
 
 - (void)setStateText;
 
@@ -27,9 +28,6 @@
 
 // Init
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // I thought Red would be cute but it's just annoying
-    //[window setBackgroundColor:[NSColor colorWithCalibratedRed:1 green:0.0 blue:0.0 alpha:0.75]];
-    
     alarmController = [[SoundController alloc] initWithSoundName:@"Purr" volume:[alarmVolume doubleValue]];
     tickController  = [[SoundController alloc] initWithSoundName:@"Tink" volume:[tickVolume doubleValue]];
     state = [WorkStateModel new];
@@ -38,7 +36,6 @@
 
 
 - (void)setStateText {
-    NSLog(@"State: %@", [state stateMessage]);
     [statusText setStringValue:[state stateMessage]];
 }
 
@@ -55,9 +52,9 @@
 - (void)setCountdown {
     countDown = MAX_TIMER;
     if ([state currentState] == workState_StartLongBreak) {
-        countDown = [longBreak doubleValue] * 1;
+        countDown = [longBreak doubleValue] * SECONDS;
     } else if ([state currentState] == workState_StartShortBreak) {
-        countDown = [shortBreak doubleValue] * 1;
+        countDown = [shortBreak doubleValue] * SECONDS;
     }
 }
 
@@ -82,6 +79,8 @@
     [self setClock];
     [alarmController stopSoundLoop];
     startPauseTimerButton.title = @"pause";
+    // Special case where I want the bubbles to turn off when you're done with your long break
+    if ([state currentState] == workState_StartWorking && [state workCount] != 0 && [state workCount] % 4 == 0) [self resetBubbleIndicators];
     [state start];
     timer = [NSTimer scheduledTimerWithTimeInterval:1
                                              target:self
@@ -94,17 +93,26 @@
     for (int cycleCount = 0; cycleCount < 4; cycleCount++) {
         int bubbleState = NSOffState;
         int workCycle = ([state workCount] - 1);
-        if ( workCycle > -1 && (workCycle % 4) > cycleCount ) {
+        if ( workCycle > -1 && (workCycle % 4) >= cycleCount ) {
             bubbleState = NSOnState;
         }
         [[self valueForKey:[NSString stringWithFormat:@"bubbleCounter%i", cycleCount]] setState:bubbleState];
     }
 }
 
+
+- (void)resetBubbleIndicators {
+    for (int cycleCount = 0; cycleCount < 4; cycleCount++) {
+        [[self valueForKey:[NSString stringWithFormat:@"bubbleCounter%i", cycleCount]] setState:NSOffState];
+    }
+}
+
+
 - (IBAction)resetTimer:(id)sender {
     [state reset];
     [self setCountdown];
     [self setStateText];
+    [self setWorkCountDisplay];
     [self setBubbleIndicators];
     [self pauseTimer];
     [self setClock];

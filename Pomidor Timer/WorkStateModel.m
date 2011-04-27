@@ -34,7 +34,6 @@
 }
 
 - (NSString*)stateMessage {
-    NSLog(@"stateMessage: currentState: %i", _currentState);
     switch (_currentState) {
         case workState_Working:
             return @"Working";
@@ -49,7 +48,7 @@
         case workState_LongBreak:
             return @"On long break";
         default:
-            return @"Get to work!";
+            return @"Start working";
     }
 }
 
@@ -83,15 +82,11 @@
 
 - (void)incrementState {
     
-    NSLog(@"incrementState: %i", _currentState);
-    
     switch (_currentState) {
         case workState_Paused:
-            NSLog(@"workState_Paused");
             _currentState = _pausedState;
             return;
         case workState_Working:
-            NSLog(@"workState_Working");
             workCount++;
             if (workCount % 4 == 0) {
                 _currentState = workState_StartLongBreak;
@@ -100,21 +95,16 @@
             }
             return;
         case workState_StartShortBreak:
-            NSLog(@"workState_StartShortBreak");
             _currentState = workState_ShortBreak;
             return;
         case workState_StartLongBreak:
-            NSLog(@"workState_StartLongBreak");
             _currentState = workState_LongBreak;
             return;
         case workState_ShortBreak:
-            NSLog(@"workState_ShortBreak");
         case workState_LongBreak:
-            NSLog(@"workState_LongBreak");
             _currentState = workState_StartWorking;
             return;
         default:
-            NSLog(@"default");
             _currentState = workState_Working;
             return;
     }

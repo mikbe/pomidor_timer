@@ -38,8 +38,8 @@
     
     WorkStateModel      *state;
     
-    #define         MAX_TIMER (5 * 1)
-
+    #define         SECONDS 60
+    #define         MAX_TIMER (25 * SECONDS)
     
 }
 
