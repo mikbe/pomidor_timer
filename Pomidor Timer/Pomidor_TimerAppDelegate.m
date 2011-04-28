@@ -19,17 +19,25 @@
 
 - (void)setStateText;
 
+- (void)pauseTimer;
+- (void)startTimer;
+
 @end
 
 @implementation Pomidor_TimerAppDelegate
 
-@synthesize window;
+@synthesize pomidorWindow;
 
 
 // Init
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     alarmController = [[SoundController alloc] initWithSoundName:@"Purr" volume:[alarmVolume doubleValue]];
     tickController  = [[SoundController alloc] initWithSoundName:@"Tink" volume:[tickVolume doubleValue]];
+    
+    statusMenuDisplay = [[[NSStatusBar systemStatusBar] statusItemWithLength:45.0] retain];
+    
+    [statusMenuDisplay setMenu:statusMenu];
+    
     state = [WorkStateModel new];
     [self resetTimer:nil]; 
 }
@@ -42,7 +50,9 @@
 -(void)setClock {
     int secs = countDown % 60;
     int mins = countDown / 60;
-    [timerDisplay setStringValue:[NSString stringWithFormat:@"%02i:%02i", mins, secs]];
+    NSString* time = [NSString stringWithFormat:@"%02i:%02i", mins, secs];
+    [timerDisplay setStringValue:time];
+    [statusMenuDisplay setTitle:time];    
 }
 
 - (void)setWorkCountDisplay {
@@ -52,17 +62,19 @@
 - (void)setCountdown {
     countDown = MAX_TIMER;
     if ([state currentState] == workState_StartLongBreak) {
-        countDown = [longBreak doubleValue] * SECONDS;
+        countDown = [longBreakMinutes doubleValue] * SECONDS;
     } else if ([state currentState] == workState_StartShortBreak) {
-        countDown = [shortBreak doubleValue] * SECONDS;
+        countDown = [shortBreakMinutes doubleValue] * SECONDS;
     }
 }
 
 - (IBAction)startPauseTimer:(id)sender {
     if (startPauseTimerButton.title == @"pause") {
+        [fastForwardButton setEnabled:NO];
         [self pauseTimer];
     }
     else  {
+        [fastForwardButton setEnabled:YES];
         [self startTimer];
     }
     [self setStateText];
@@ -80,6 +92,7 @@
 }
 
 - (void)startTimer {
+    lastSecond = [[NSDate date] timeIntervalSince1970];
     [self setClock];
     [alarmController stopSoundLoop];
     startPauseTimerButton.title = @"pause";
@@ -104,16 +117,15 @@
     }
 }
 
-
 - (void)resetBubbleIndicators {
     for (int cycleCount = 0; cycleCount < 4; cycleCount++) {
         [[self valueForKey:[NSString stringWithFormat:@"bubbleCounter%i", cycleCount]] setState:NSOffState];
     }
 }
 
-
 - (IBAction)resetTimer:(id)sender {
     [state reset];
+    [fastForwardButton setEnabled:NO];
     [self setCountdown];
     [self setStateText];
     [self setWorkCountDisplay];
@@ -121,6 +133,11 @@
     [self pauseTimer];
     [self setClock];
     [alarmController stopSoundLoop];
+}
+
+- (IBAction)showWindow:(id)sender {
+    [pomidorWindow makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (IBAction)alarmVolumeChange:(id)sender {
@@ -132,18 +149,24 @@
 }
 
 - (void)timerFiredMethod:(NSTimer*)theTimer {
-    countDown--;
-    [self setClock];
-    if (countDown == 0) {
-        [state stop];
-        [self setStateText];
-        [self setWorkCountDisplay];
-        [self setBubbleIndicators];
-        [self pauseTimer];
-        [self setCountdown];
-        [alarmController startSoundLoop];
-    } else {
-        [tickController playSoundNow];
+    int now = [[NSDate date] timeIntervalSince1970];
+    if ( now >= lastSecond + 1) {
+        countDown -= (now - lastSecond);
+        lastSecond = now;
+        [self setClock];
+        if (countDown == 0) {
+            [state stop];
+            [fastForwardButton setEnabled:NO];
+            [self setStateText];
+            [self setWorkCountDisplay];
+            [self setBubbleIndicators];
+            [self pauseTimer];
+            [self setCountdown];
+            [alarmController startSoundLoop];
+        } else {
+            [tickController playSoundNow];
+        }
+        
     }
 }
 
