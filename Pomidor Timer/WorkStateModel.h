@@ -22,8 +22,9 @@ typedef enum {
 @interface WorkStateModel : NSObject {
 
     @private
-    workStates _pausedState;
-    workStates _currentState;
+    workStates  _pausedState;
+    workStates  _currentState;
+    int         _workCount;
 }
 
 - (void)reset;

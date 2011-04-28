@@ -15,6 +15,11 @@
     NSTimer         *timer;
 
     double          _volume;
+
+    NSString*       _soundName;
+    BOOL            _repeat;
+    double          _delay;
+    
     
 }
 

@@ -22,10 +22,11 @@
 - (void)pauseTimer;
 - (void)startTimer;
 
+- (void)restoreUserSettings;
+
 @end
 
 @implementation Pomidor_TimerAppDelegate
-
 @synthesize pomidorWindow;
 
 
@@ -35,11 +36,28 @@
     tickController  = [[SoundController alloc] initWithSoundName:@"Tink" volume:[tickVolume doubleValue]];
     
     statusMenuDisplay = [[[NSStatusBar systemStatusBar] statusItemWithLength:45.0] retain];
-    
     [statusMenuDisplay setMenu:statusMenu];
-    
+
+    [self restoreUserSettings];
     state = [WorkStateModel new];
     [self resetTimer:nil]; 
+}
+
+- (void)restoreUserSettings {
+    // this screams for refactoring to be dynamic
+    userSettings = [NSUserDefaults standardUserDefaults];
+    if ([userSettings objectForKey:@"longBreakMinutes"]) {
+        [longBreakMinutes setIntegerValue:[userSettings integerForKey:@"longBreakMinutes"]];
+    }
+    if ([userSettings objectForKey:@"shortBreakMinutes"]) {
+        [shortBreakMinutes setIntegerValue:[userSettings integerForKey:@"shortBreakMinutes"]];
+    }
+    if ([userSettings objectForKey:@"alarmVolume"]) {
+        [alarmVolume setDoubleValue:[userSettings doubleForKey:@"alarmVolume"]];
+    }
+    if ([userSettings objectForKey:@"tickVolume"]) {
+        [tickVolume setDoubleValue:[userSettings doubleForKey:@"tickVolume"]];
+    }
 }
 
 
@@ -140,12 +158,26 @@
     [NSApp activateIgnoringOtherApps:YES];
 }
 
-- (IBAction)alarmVolumeChange:(id)sender {
+- (IBAction)alarmVolumeChanged:(id)sender {
     [alarmController setVolume:[alarmVolume doubleValue]];
+    [userSettings setDouble:[alarmVolume doubleValue] forKey:@"alarmVolume"];
+    [userSettings synchronize];
 }
 
 - (IBAction)tickVolumeChanged:(id)sender {
     [tickController setVolume:[tickVolume doubleValue]];
+    [userSettings setDouble:[tickVolume doubleValue] forKey:@"tickVolume"];
+    [userSettings synchronize];
+}
+
+- (IBAction)shortBreakMinutesChanged:(id)sender {
+    [userSettings setInteger:[shortBreakMinutes integerValue] forKey:@"shortBreakMinutes"];
+    [userSettings synchronize];
+}
+
+- (IBAction)longBreakMinutesChanged:(id)sender {
+    [userSettings setInteger:[longBreakMinutes integerValue] forKey:@"longBreakMinutes"];
+    [userSettings synchronize];
 }
 
 - (void)timerFiredMethod:(NSTimer*)theTimer {

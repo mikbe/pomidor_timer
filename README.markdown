@@ -28,3 +28,10 @@ No. <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Pomidor Tim
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>  
 Copyright© 2011 Mike Bethany - http://mikbe.tk  
+
+
+## Attributions ##
+
+Tomato icon is Copyright© 2011 <a href="http://www.artbees.net" target="new">Artbees</a>  
+Licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="new">Attribution-NonCommercial-NoDerivs 3.0</a>  
+Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  

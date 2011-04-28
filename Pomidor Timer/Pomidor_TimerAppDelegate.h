@@ -52,6 +52,10 @@
     #define                 MAX_TIMER (25 * SECONDS)
     
     NSMenuItem              *showWindow;
+    
+    NSUserDefaults          *userSettings;
+    NSTextField *shortBreakMinutesChanged;
+    NSTextField *longBreakMinutesChanged;
 }
 
 @property (assign) IBOutlet NSWindow *pomidorWindow;
@@ -62,8 +66,11 @@
 - (IBAction)resetTimer:(id)sender;
 
 // Options tab
-- (IBAction)alarmVolumeChange:(id)sender;
+- (IBAction)alarmVolumeChanged:(id)sender;
 - (IBAction)tickVolumeChanged:(id)sender;
+- (IBAction)shortBreakMinutesChanged:(id)sender;
+- (IBAction)longBreakMinutesChanged:(id)sender;
+
 
 // Status bar
 - (IBAction)showWindow:(id)sender;

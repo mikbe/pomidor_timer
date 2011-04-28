@@ -13,7 +13,7 @@
 
 @implementation WorkStateModel
 
-@synthesize workCount;
+@synthesize workCount=_workCount;
 
 - (id)init
 {
@@ -55,7 +55,7 @@
 - (void)reset {
     _currentState   = workState_StartWorking;
     _pausedState    = workState_StartWorking;
-    workCount       = 0;
+    _workCount      = 0;
 }
 
 // An alias for incrementState; in some cases it makes more sense symantically
@@ -87,8 +87,8 @@
             _currentState = _pausedState;
             return;
         case workState_Working:
-            workCount++;
-            if (workCount % 4 == 0) {
+            _workCount++;
+            if (_workCount % 4 == 0) {
                 _currentState = workState_StartLongBreak;
             } else {
                 _currentState = workState_StartShortBreak;
