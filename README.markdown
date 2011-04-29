@@ -11,7 +11,8 @@ Xcode 4.0.1 to build it
 
 ## Instructions ##
 
-**Timer Tab:**
+**Timer Tab:**  
+
 Press `Start` button to start the timer.  
 The start button turns into a pause button that allows you to pause a work or break period.
 
@@ -22,7 +23,8 @@ Press `Reset` to reset work/break cycle.
 This does not reset user configured options.  
 This will also quite any alarms.  
 
-**Options Tab:**
+**Options Tab:**  
+
 Short break in minutes:   
 After every work period, execpt every fourth one, the timer will be set to this number of minutes. The default is 5 minutes.
 
@@ -60,6 +62,12 @@ Tomato icon is Copyright© 2011 <a href="http://www.artbees.net" target="new">Ar
 Licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="new">Attribution-NonCommercial-NoDerivs 3.0</a>  
 Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
 
+## To do ##
+
+* Make minute entry not show blue border when entering text.
+* Mute alarm action. Not sure how I want to do it.
+* Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
+
 
 ## Change History ##
 
@@ -68,6 +76,7 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 Fixed bugs:
 
 * Missing font
+* Window disappeared forever if you pressed icon or menu display too fast.
 
 **2011.04.28** Version: 1.0.1  
 
