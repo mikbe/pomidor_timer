@@ -38,27 +38,27 @@
     IBOutlet NSMenuItem     *statusMenuDisplay;
     
 @private
-    NSWindow                *pomidorWindow;
-    NSTimer                 *timer;
-    int                     lastSecond;
+    NSWindow                *_pomidorWindow;
+    NSTimer                 *_countdownTimer;
+    NSTimer                 *_fadeTimer;
     
-    int                     countDown;
-    SoundController         *alarmController;
-    SoundController         *tickController;
+    int                     _lastSecond;
     
-    WorkStateModel          *state;
+    int                     _countDown;
+    SoundController         *_alarmController;
+    SoundController         *_tickController;
+    
+    WorkStateModel          *_state;
     
     #define                 SECONDS 60
     #define                 MAX_TIMER (25 * SECONDS)
     
-    NSMenuItem              *showWindow;
+    NSMenuItem              *_showWindow;
     
-    NSUserDefaults          *userSettings;
-    NSTextField *shortBreakMinutesChanged;
-    NSTextField *longBreakMinutesChanged;
+    NSUserDefaults          *_userSettings;
+    NSTextField             *_shortBreakMinutesChanged;
+    NSTextField             *_longBreakMinutesChanged;
 }
-
-@property (assign) IBOutlet NSWindow *pomidorWindow;
 
 // Timer tab
 - (IBAction)startPauseTimer:(id)sender;
@@ -71,8 +71,7 @@
 - (IBAction)shortBreakMinutesChanged:(id)sender;
 - (IBAction)longBreakMinutesChanged:(id)sender;
 
-
 // Status bar
-- (IBAction)showWindow:(id)sender;
+- (IBAction)toggleWindow:(id)sender;
 
 @end

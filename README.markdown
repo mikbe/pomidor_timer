@@ -6,11 +6,35 @@ One of the great things about <a href="http://pomodorotechnique.com">The Pomodor
 
 ## Requirements ##
 
-OS X 10.6
+OS X 10.6 to run it
+Xcode 4.0.1 to build it
 
 ## Instructions ##
 
-If you can't figure it out I can't help you... no one can.
+**Timer Tab:**
+Press `Start` button to start the timer.  
+The start button turns into a pause button that allows you to pause a work or break period.
+
+Press `>>` (fast forward) to finish the break/work period immediatly.  
+This can be useful if you paused a break or work period and forgot to restart the timer.
+
+Press `Reset` to reset work/break cycle.  
+This does not reset user configured options.  
+This will also quite any alarms.  
+
+**Options Tab:**
+Short break in minutes:   
+After every work period, execpt every fourth one, the timer will be set to this number of minutes. The default is 5 minutes.
+
+Long break in minutes:  
+After every forth work period the timer will be set to this value. The default is 15 minutes.
+
+Tick volume:  
+How loud the timer will tick every second.
+
+Alarm volume:  
+How loud the alarm will be at the end of each work/break cycle.
+
 
 ## What does "Pomidor" mean? ##
 
@@ -35,3 +59,23 @@ Copyright© 2011 Mike Bethany - http://mikbe.tk
 Tomato icon is Copyright© 2011 <a href="http://www.artbees.net" target="new">Artbees</a>  
 Licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="new">Attribution-NonCommercial-NoDerivs 3.0</a>  
 Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
+
+
+## Change History ##
+
+**2011.04.28** Version: 1.0.1  
+
+* Changed tick sound to actual clock tick.
+* Changed alarm sound to avoid confusion with message alerts.
+* Added click show/hide ability to status bar and dock icon.
+* Refactored sound controller (cleaned up some premature optimization).
+* Changed version numbering to Major.Minor.Build because it's better.
+
+Fixed bugs:  
+
+* Sound volumes loaded after saved user settings.
+
+
+
+2011.04.27 Version 1.0
+Initial release

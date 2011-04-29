@@ -11,19 +11,17 @@
 
 @interface SoundController : NSObject {
 @private
-    NSSound         *sound;
-    NSTimer         *timer;
+    NSSound         *_sound;
+    NSTimer         *_timer;
 
     double          _volume;
 
-    NSString*       _soundName;
     BOOL            _repeat;
     double          _delay;
     
     
 }
 
-@property (readwrite, copy) NSString*   soundName;
 @property (readwrite)       BOOL        repeat;
 @property (readwrite)       double      delay;
 
@@ -33,10 +31,8 @@
 - (void)setVolume: (double)volume;
 
 - (void)playSound;
-- (void)playSoundNow;
-- (void)playSoundNowWithVolume:(double)volume;
-- (void)playSoundNowWithSoundName:(NSString*)soundName;
-- (void)playSoundWithSoundName:(NSString*)soundName volume:(double)volume delay:(int)delay;
+- (void)playSoundWithTimer;
+- (void)playSoundWithTimer:(int)delay;
 
 - (void)startSoundLoop;
 - (void)stopSoundLoop;

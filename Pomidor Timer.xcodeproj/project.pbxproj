@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322BCD18136A0EAA00A7301C /* Tick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 322BCD17136A0EAA00A7301C /* Tick.aiff */; };
 		323B536F1367A2F900CC9AFA /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 323B536E1367A2F900CC9AFA /* README.markdown */; };
 		323B53721367A8C700CC9AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 323B53711367A8C700CC9AFA /* LICENSE */; };
 		32460E2F13678BF7007D9AC9 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32460E2E13678BF6007D9AC9 /* SoundController.m */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		322BCD17136A0EAA00A7301C /* Tick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Tick.aiff; sourceTree = "<group>"; };
 		323B536E1367A2F900CC9AFA /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		323B53711367A8C700CC9AFA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		32460E2D13678BF6007D9AC9 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		32D157C3133ECB5900D6B7AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				322BCD17136A0EAA00A7301C /* Tick.aiff */,
 				32BDF80F13691CD1000D3EBB /* pomidor.icns */,
 				32D157C4133ECB5900D6B7AF /* Pomidor Timer-Info.plist */,
 				32D157C5133ECB5900D6B7AF /* InfoPlist.strings */,
@@ -174,6 +177,7 @@
 				323B536F1367A2F900CC9AFA /* README.markdown in Resources */,
 				323B53721367A8C700CC9AFA /* LICENSE in Resources */,
 				32BDF81013691CD1000D3EBB /* pomidor.icns in Resources */,
+				322BCD18136A0EAA00A7301C /* Tick.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

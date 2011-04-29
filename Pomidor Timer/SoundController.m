@@ -13,12 +13,12 @@
 
     // Private methods
     -(void)sound: (NSSound*)sound didFinishPlaying: (BOOL)finishedPlaying;
+    -(void)loadSound:(NSString*)soundName;
 
 @end
 
 @implementation SoundController
 
-@synthesize soundName=_soundName;
 @synthesize repeat=_repeat;
 @synthesize delay=_delay;
 
@@ -26,9 +26,7 @@
 {
     self = [super init];
     if (self) {
-        _soundName   = @"Purr";
-        _volume     = 0.5;
-        _delay       = 1;
+        [self initWithSoundName:@"Purr" volume:0.5];
     }
     
     return self;
@@ -38,24 +36,27 @@
 {
     self = [super init];
     if (self) {
-        self.soundName  = soundName;
-        _volume         = volume;
-        _delay           = 1;
+        _volume     = volume;
+        _delay      = .2;
+        [self loadSound:soundName];
     }
-    
     return self;
 }
 
 - (void)dealloc
 {
-    [_soundName release];
+    [_sound release];
     [super dealloc];
+}
+
+-(void)loadSound:(NSString*)soundName {
+    _sound = [NSSound soundNamed:soundName];
 }
 
 -(void)setVolume: (double)volume
 {
     _volume = volume;
-    if (!_repeat) [self playSoundNow];
+    if (!_repeat) [self playSound];
 }
 
 -(double)volume
@@ -67,56 +68,41 @@
 -(void)sound:(NSSound*)sound didFinishPlaying:(BOOL)finishedPlaying
 {
     if (finishedPlaying && _repeat) {
-        [self playSound];
+        [self playSoundWithTimer];
     }
 }
 
--(void)playSound {
-    [self playSoundWithSoundName:_soundName volume:_volume delay:_delay];
+-(void)playSoundWithTimer {
+    [self playSoundWithTimer:_delay];
 }
-
--(void)playSoundNow {
-    [self playSoundWithSoundName:_soundName volume:_volume delay:0];
-}
-
--(void)playSoundNowWithVolume:(double)volume {
-    [self playSoundWithSoundName:_soundName volume:volume delay:0];
-}
-
--(void)playSoundNowWithSoundName:(NSString*)soundName {
-    [self playSoundWithSoundName:soundName volume:_volume delay:0];
-}
-
--(void)playSoundWithSoundName:(NSString*)soundName volume:(double)volume delay:(int)delay {
-    timer = [NSTimer scheduledTimerWithTimeInterval: delay
+-(void)playSoundWithTimer:(int)delay {
+    _timer = [NSTimer scheduledTimerWithTimeInterval: delay
                                      target: self
-                                   selector: @selector(playSoundThreaded)
+                                   selector: @selector(playSound)
                                    userInfo: nil
                                     repeats: NO];
 }
 
-
 // Callback for the timer thread that handles playing the sound
--(void)playSoundThreaded
+-(void)playSound
 {
-    sound = [NSSound soundNamed:_soundName];
-    [sound setDelegate: self];
-    [sound setVolume: _volume];
-    [sound play];
-    timer = nil;
+    [_sound setDelegate: self];
+    [_sound setVolume: _volume];
+    [_sound play];
+    _timer = nil;
 }
 
 -(void)startSoundLoop
 {
     _repeat = YES;
-    [self playSound];
+    [self playSoundWithTimer];
 }
 
 -(void)stopSoundLoop
 {
-    if (timer) {
-        [timer invalidate];
-        timer = nil;
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
     }
     _repeat = NO;
 }
