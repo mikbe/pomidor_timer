@@ -37,7 +37,8 @@
 
 // Init
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+
+    windowFading = NO;
     [_pomidorWindow setDelegate:self];
     [statusMenu setDelegate:self];
     
@@ -171,6 +172,8 @@
 }
 
 - (IBAction)toggleWindow:(id)sender {
+    if (windowFading) return;
+    windowFading = YES;
     if ([_pomidorWindow isVisible]){
         [self fadeWindow];
     } else {
@@ -254,6 +257,7 @@
             [NSApp deactivate];
             [_pomidorWindow orderOut:nil];
         }
+        windowFading = NO;
     }
 }
 

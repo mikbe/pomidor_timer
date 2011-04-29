@@ -50,6 +50,8 @@
     
     WorkStateModel          *_state;
     
+    BOOL                    windowFading;
+    
     #define                 SECONDS 60
     #define                 MAX_TIMER (25 * SECONDS)
     

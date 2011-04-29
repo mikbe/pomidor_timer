@@ -63,6 +63,12 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## Change History ##
 
+**2011.04.28** Version: 1.0.2  
+
+Fixed bugs:
+
+* Missing font
+
 **2011.04.28** Version: 1.0.1  
 
 * Changed tick sound to actual clock tick.
