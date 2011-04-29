@@ -67,7 +67,9 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 * Make minute entry not show blue border when entering text.
 * Mute alarm action. Not sure how I want to do it.
 * Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
-
+* Add help me file.
+* Clean up main menu.
+* Improve About form.
 
 ## Change History ##
 
