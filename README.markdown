@@ -77,11 +77,13 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 **2011.05.19** Version: 1.0.3
 
 Added Features:  
+
 * Growl alerts for alarms (requires Growl installed of course).  
-* Added alarm mute button.
+* Added alarm mute button.  
 * When an alarm goes off the dock icon bounces if Pomidor Timer is not the front app (standard Apple design).  
 
-Fixes:
+Fixes:  
+
 * Window does not hide when it was mearly inactive. It just becomes visible. This stops the annoying hiding of the window when you just wanted to view it.
 
 **2011.04.28** Version: 1.0.2  

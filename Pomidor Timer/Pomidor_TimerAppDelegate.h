@@ -56,7 +56,6 @@
     
     #define                 SECONDS 60
     #define                 MAX_TIMER (25 * SECONDS)
-    #define                 MAX_TIMER 10
     
     NSMenuItem              *_showWindow;
     
