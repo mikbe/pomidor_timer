@@ -64,13 +64,15 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## To do ##
 
+* Clean up and refactor.
+* Add mute buttons for sounds.
+* Add sound selection from default system sounds?
+* Add images to webpage.
+* Make webpage less ugly.
 * Make minute entry not show blue border when entering text.
 * Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
 * Add help me file.
 * Clean up main menu.
-* Clean up and refactor.
-* Add images to webpage.
-* Make webpage less ugly.
 
 ## Change History ##
 
