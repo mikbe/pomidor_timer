@@ -30,6 +30,9 @@
 - (void)showWindow;
 - (void)startFading:(BOOL)fadeOut;
 
+-(void) growlAlarm:(NSString *)message title:(NSString *)title;
+-(void)soundAlarm;
+
 @end
 
 @implementation Pomidor_TimerAppDelegate
@@ -38,9 +41,25 @@
 // Init
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
+    NSColor *color = [NSColor whiteColor];
+    NSFont *font = [NSFont fontWithName:@"Silom" size:36.0];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setAlignment:NSCenterTextAlignment];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     color, NSForegroundColorAttributeName, 
+                                     style, NSParagraphStyleAttributeName,
+                                     font, NSFontAttributeName,
+                                     nil];
+    NSAttributedString *attrString = [[NSAttributedString alloc]
+                                      initWithString:@"Mute\nAlarm" attributes:attrsDictionary];
+    [muteButton setAttributedTitle:attrString];
+    [style release];
+    [attrString release]; 
+    
     windowFading = NO;
     [_pomidorWindow setDelegate:self];
     [statusMenu setDelegate:self];
+    [NSApp setDelegate:self];
     
     statusMenuDisplay = [[[NSStatusBar systemStatusBar] statusItemWithLength:45.0] retain];
     [statusMenuDisplay setMenu:statusMenu];
@@ -49,17 +68,33 @@
     _alarmController = [[SoundController alloc] initWithSoundName:@"Blow" volume:[alarmVolume doubleValue]];
     _tickController  = [[SoundController alloc] initWithSoundName:@"Tick" volume:[tickVolume doubleValue]];
 
+    [GrowlApplicationBridge setGrowlDelegate:self];
+    
     _state = [WorkStateModel new];
     [self resetTimer:nil]; 
 }
 
+// Fired by clicking dock icon
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)visibleWindows {
-    [self toggleWindow:nil];
-    return YES;
+    if ([_pomidorWindow isKeyWindow] == [_pomidorWindow isVisible])
+    {   [self toggleWindow:nil]; }
+    else
+    {   [self showWindow];  }
+    return [_pomidorWindow isVisible];
 }
 
+// Fired when application loses focus
+- (void)applicationWillResignActive:(NSNotification *)aNotification
+{
+    [_pomidorWindow orderOut:nil];
+}
+
+// Fired by clicking on menubar timer
 -(void)menuWillOpen:(NSMenu *)menu {
-    [self toggleWindow:nil];
+    if ([_pomidorWindow isKeyWindow] == [_pomidorWindow isVisible])
+    {   [self toggleWindow:nil]; }
+    else
+    {   [self showWindow];  }
 }
 
 - (void)restoreUserSettings {
@@ -78,6 +113,24 @@
         [tickVolume setDoubleValue:[_userSettings doubleForKey:@"tickVolume"]];
     }
 }
+
+-(void) growlAlarm:(NSString *)message title:(NSString *)title
+{
+    [GrowlApplicationBridge notifyWithTitle:title
+                                description:message
+                           notificationName:@"Alarm"
+                                   iconData:nil
+                                   priority:0
+                                   isSticky:NO
+                               clickContext:@"alarmClickContext"];
+}
+
+- (void) growlNotificationWasClicked:(id)clickContext{
+    if (clickContext && [clickContext isEqualToString:@"alarmClickContext"])
+        [self showWindow];
+    return;
+}
+
 
 - (void)setStateText {
     [statusText setStringValue:[_state stateMessage]];
@@ -181,6 +234,18 @@
     }
 }
 
+-(void)soundAlarm {
+    [NSApp requestUserAttention:NSCriticalRequest];
+    [muteButton setHidden:NO];
+    [self growlAlarm:[[_state stateMessage] stringByAppendingString:@" done"] title:@"Pomidor Timer"];
+    [_alarmController startSoundLoop];
+}
+
+- (IBAction)muteAlarm:(id)sender {
+    [_alarmController stopSoundLoop];
+    [muteButton setHidden:YES];
+}
+
 - (IBAction)alarmVolumeChanged:(id)sender {
     [_alarmController setVolume:[alarmVolume doubleValue]];
     [_userSettings setDouble:[alarmVolume doubleValue] forKey:@"alarmVolume"];
@@ -217,7 +282,7 @@
             [self setBubbleIndicators];
             [self pauseTimer];
             [self setCountdown];
-            [_alarmController startSoundLoop];
+            [self soundAlarm];
         } else {
             [_tickController playSound];
         }

@@ -65,13 +65,24 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 ## To do ##
 
 * Make minute entry not show blue border when entering text.
-* Mute alarm action. Not sure how I want to do it.
 * Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
 * Add help me file.
 * Clean up main menu.
-* Improve About form.
+* Clean up and refactor.
+* Add images to webpage.
+* Make webpage less ugly.
 
 ## Change History ##
+
+**2011.05.19** Version: 1.0.3
+
+Added Features:  
+* Growl alerts for alarms (requires Growl installed of course).  
+* Added alarm mute button.
+* When an alarm goes off the dock icon bounces if Pomidor Timer is not the front app (standard Apple design).  
+
+Fixes:
+* Window does not hide when it was mearly inactive. It just becomes visible. This stops the annoying hiding of the window when you just wanted to view it.
 
 **2011.04.28** Version: 1.0.2  
 

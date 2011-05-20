@@ -10,8 +10,9 @@
 #import <Cocoa/Cocoa.h>
 #import "SoundController.h"
 #import "WorkStateModel.h"
+#import "Growl.framework/Headers/GrowlApplicationBridge.h"
 
-@interface Pomidor_TimerAppDelegate : NSObject <NSApplicationDelegate> {
+@interface Pomidor_TimerAppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
     
     // Timer tab
     IBOutlet NSTextField    *timerDisplay;
@@ -37,6 +38,7 @@
     IBOutlet NSMenu         *statusMenu;
     IBOutlet NSMenuItem     *statusMenuDisplay;
     
+    IBOutlet NSButton       *muteButton;
 @private
     NSWindow                *_pomidorWindow;
     NSTimer                 *_countdownTimer;
@@ -54,12 +56,14 @@
     
     #define                 SECONDS 60
     #define                 MAX_TIMER (25 * SECONDS)
+    #define                 MAX_TIMER 10
     
     NSMenuItem              *_showWindow;
     
     NSUserDefaults          *_userSettings;
     NSTextField             *_shortBreakMinutesChanged;
     NSTextField             *_longBreakMinutesChanged;
+
 }
 
 // Timer tab
@@ -75,5 +79,8 @@
 
 // Status bar
 - (IBAction)toggleWindow:(id)sender;
+
+
+- (IBAction)muteAlarm:(id)sender;
 
 @end
