@@ -1,4 +1,4 @@
-//
+ //
 //  Pomidor_TimerAppDelegate.m
 //  Pomidor Timer
 //
@@ -24,14 +24,13 @@
 
 - (void)restoreUserSettings;
 
-- (void)fade:(NSTimer *)theTimer;
 
-- (void)fadeWindow;
 - (void)showWindow;
-- (void)startFading:(BOOL)fadeOut;
 
--(void) growlAlarm:(NSString *)message title:(NSString *)title;
--(void)soundAlarm;
+- (void)growlAlarm:(NSString *)message title:(NSString *)title;
+- (void)soundAlarm;
+
+- (void)setForm;
 
 @end
 
@@ -45,14 +44,17 @@
     NSFont *font = [NSFont fontWithName:@"Silom" size:36.0];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setAlignment:NSCenterTextAlignment];
+    
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                      color, NSForegroundColorAttributeName, 
                                      style, NSParagraphStyleAttributeName,
                                      font, NSFontAttributeName,
                                      nil];
+    
     NSAttributedString *attrString = [[NSAttributedString alloc]
                                       initWithString:@"Mute\nAlarm" attributes:attrsDictionary];
-    [muteButton setAttributedTitle:attrString];
+    
+    [muteAlarmButton setAttributedTitle:attrString];
     [style release];
     [attrString release]; 
     
@@ -67,39 +69,100 @@
     [self restoreUserSettings];
     _alarmController = [[SoundController alloc] initWithSoundName:@"Blow" volume:[alarmVolume doubleValue]];
     _tickController  = [[SoundController alloc] initWithSoundName:@"Tick" volume:[tickVolume doubleValue]];
-
-    [GrowlApplicationBridge setGrowlDelegate:self];
-    
     _state = [WorkStateModel new];
-    [self resetTimer:nil]; 
+    [self resetTimer:nil];
+    
+}
+
+- (void)awakeFromNib{
+    
+    NSRect buttFrame = [fastForwardButton frame];
+    NSRect viewFrame = [timerTab frame];
+    // There has got to be a better/correct way to get the tracking area of an object.
+    // I should also be turning off the tracking when the timer tab isn't active.
+    NSRect correctedFrame = NSMakeRect(buttFrame.origin.x + 5, 
+                                  (viewFrame.size.height - buttFrame.size.height) - (buttFrame.origin.y + viewFrame.origin.y + 10),
+                                  buttFrame.size.width  + 10, 
+                                  buttFrame.size.height + 5);
+    
+    [GrowlApplicationBridge setGrowlDelegate:self];
+    _fastForwardTrackingArea = [[NSTrackingArea alloc] 
+                                initWithRect: correctedFrame
+                                options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow )
+                                owner: self
+                                userInfo:nil];
+    
+    [timerTab addTrackingArea:_fastForwardTrackingArea];
+    _formFadeController = [[FadeController alloc] initWithNotifyObject:self withSelector:@selector(formFadeDone:) control:_pomidorWindow duration:0.15];
+    _fastForwardFadeController = [[FadeController alloc] initWithControl:fastForwardHintButton duration:0.2];
+    
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+    [_fastForwardFadeController fadeInWithWait:1.25];
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    [_fastForwardFadeController fadeOutWithWait:0.25];
+}
+
+- (void)formFadeDone:(id)fadeOut
+{
+    BOOL fadedOut = [(NSNumber*)fadeOut boolValue];
+    if (fadedOut)
+    { 
+        [_pomidorWindow orderOut:nil]; 
+    }
+}
+
+- (BOOL)windowShouldClose:(id)sender
+{
+    [self toggleWindow:nil];
+    return NO;
+}
+
+- (void)showWindow {
+    [_pomidorWindow makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 // Fired by clicking dock icon
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)visibleWindows {
-    if ([_pomidorWindow isKeyWindow] == [_pomidorWindow isVisible])
-    {   [self toggleWindow:nil]; }
-    else
-    {   [self showWindow];  }
-    return [_pomidorWindow isVisible];
+    
+    [self toggleWindow:nil];
+    return NO;
 }
 
 // Fired when application loses focus
 - (void)applicationWillResignActive:(NSNotification *)aNotification
 {
-    [_pomidorWindow orderOut:nil];
+    [_formFadeController toggleFade];
 }
 
 // Fired by clicking on menubar timer
 -(void)menuWillOpen:(NSMenu *)menu {
-    if ([_pomidorWindow isKeyWindow] == [_pomidorWindow isVisible])
-    {   [self toggleWindow:nil]; }
-    else
-    {   [self showWindow];  }
+    [self toggleWindow:nil];
+}
+
+- (void)toggleWindow:(id)sender
+{
+    if ([_pomidorWindow alphaValue] == 0.0)
+    {
+        [_pomidorWindow makeKeyAndOrderFront:self];
+        [NSApp activateIgnoringOtherApps:YES];
+    }
+    [_formFadeController toggleFade];
 }
 
 - (void)restoreUserSettings {
     // this screams for refactoring to be dynamic
     _userSettings = [NSUserDefaults standardUserDefaults];
+    if ([_userSettings objectForKey:@"muteSoundsState"]) {
+        [muteSoundsButton setState:[_userSettings integerForKey:@"muteSoundsState"]];
+    }
+    if ([_userSettings objectForKey:@"workPeriodMinutes"]) {
+        [workPeriodMinutes setIntegerValue:[_userSettings integerForKey:@"workPeriodMinutes"]];
+    }
     if ([_userSettings objectForKey:@"longBreakMinutes"]) {
         [longBreakMinutes setIntegerValue:[_userSettings integerForKey:@"longBreakMinutes"]];
     }
@@ -131,7 +194,6 @@
     return;
 }
 
-
 - (void)setStateText {
     [statusText setStringValue:[_state stateMessage]];
 }
@@ -149,7 +211,7 @@
 }
 
 - (void)setCountdown {
-    _countDown = MAX_TIMER;
+    _countDown = [workPeriodMinutes doubleValue] * SECONDS;
     if ([_state currentState] == workState_StartLongBreak) {
         _countDown = [longBreakMinutes doubleValue] * SECONDS;
     } else if ([_state currentState] == workState_StartShortBreak) {
@@ -167,6 +229,7 @@
         [self startTimer];
     }
     [self setStateText];
+    [self setClock];
 }
 
 - (IBAction)fastForward:(id)sender {
@@ -183,8 +246,9 @@
 - (void)startTimer {
     _lastSecond = [[NSDate date] timeIntervalSince1970];
     [self setClock];
-    [_alarmController stopSoundLoop];
+    [self muteAlarm:nil];
     startPauseTimerButton.title = @"pause";
+    
     // Special case where I want the bubbles to turn off when you're done with your long break
     if ([_state currentState] == workState_StartWorking && [_state workCount] != 0 && [_state workCount] % 4 == 0) [self resetBubbleIndicators];
     [_state start];
@@ -212,38 +276,34 @@
     }
 }
 
-- (IBAction)resetTimer:(id)sender {
-    [_state reset];
+-(void)setForm{
     [fastForwardButton setEnabled:NO];
-    [self setCountdown];
     [self setStateText];
     [self setWorkCountDisplay];
     [self setBubbleIndicators];
     [self pauseTimer];
-    [self setClock];
-    [_alarmController stopSoundLoop];
+    [self setCountdown];
 }
 
-- (IBAction)toggleWindow:(id)sender {
-    if (windowFading) return;
-    windowFading = YES;
-    if ([_pomidorWindow isVisible]){
-        [self fadeWindow];
-    } else {
-        [self showWindow];
-    }
+- (IBAction)resetTimer:(id)sender {
+    [_state reset];
+    [self setForm];
+    [self setClock];
+    [self muteAlarm:nil];
 }
 
 -(void)soundAlarm {
     [NSApp requestUserAttention:NSCriticalRequest];
-    [muteButton setHidden:NO];
     [self growlAlarm:[[_state stateMessage] stringByAppendingString:@" done"] title:@"Pomidor Timer"];
-    [_alarmController startSoundLoop];
+    if ([muteSoundsButton state] == NSOffState) {
+        [muteAlarmButton setHidden:NO];
+        [_alarmController startSoundLoop];
+    }
 }
 
 - (IBAction)muteAlarm:(id)sender {
     [_alarmController stopSoundLoop];
-    [muteButton setHidden:YES];
+    [muteAlarmButton setHidden:YES];
 }
 
 - (IBAction)alarmVolumeChanged:(id)sender {
@@ -258,6 +318,15 @@
     [_userSettings synchronize];
 }
 
+- (IBAction)workPeriodMinutesChanged:(id)sender {
+    if ([_state currentState] == workState_StartWorking) {
+        _countDown = [workPeriodMinutes doubleValue] * SECONDS;
+        [self setClock];
+    } 
+    [_userSettings setInteger:[workPeriodMinutes integerValue] forKey:@"workPeriodMinutes"];
+    [_userSettings synchronize];
+}
+
 - (IBAction)shortBreakMinutesChanged:(id)sender {
     [_userSettings setInteger:[shortBreakMinutes integerValue] forKey:@"shortBreakMinutes"];
     [_userSettings synchronize];
@@ -268,63 +337,27 @@
     [_userSettings synchronize];
 }
 
+
+- (IBAction)muteSoundsChanged:(id)sender {
+    [_userSettings setInteger:[muteSoundsButton state] forKey:@"muteSoundsState"];
+    [_userSettings synchronize];
+}
+
 - (void)timerFiredMethod:(NSTimer*)theTimer {
     int now = [[NSDate date] timeIntervalSince1970];
     if ( now >= _lastSecond + 1) {
         _countDown -= (now - _lastSecond);
         _lastSecond = now;
         [self setClock];
-        if (_countDown == 0) {
+        if (_countDown <= 0) {
+            _countDown = 0;
             [_state stop];
-            [fastForwardButton setEnabled:NO];
-            [self setStateText];
-            [self setWorkCountDisplay];
-            [self setBubbleIndicators];
-            [self pauseTimer];
-            [self setCountdown];
+            [self setForm];
             [self soundAlarm];
-        } else {
+        } else if ([muteSoundsButton state] == NSOffState) {
             [_tickController playSound];
         }
     }
 }
-
-- (BOOL)windowShouldClose:(id)sender
-{
-    [self toggleWindow:nil];
-    return NO;
-}
-
-- (void)fadeWindow {
-    [self startFading:YES];
-}
-
-- (void)showWindow {
-    [self startFading:NO];
-}
-
-- (void)startFading:(BOOL)fadeOut {
-    [_pomidorWindow makeKeyAndOrderFront:self];
-    [NSApp activateIgnoringOtherApps:YES];
-    _fadeTimer = [[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(fade:) userInfo:[NSNumber numberWithBool:fadeOut] repeats:YES] retain]; 
-}
-
-- (void)fade:(NSTimer *)theTimer
-{
-    BOOL fadeOut = [((NSNumber *)[theTimer userInfo]) boolValue];
-    if ((fadeOut && [_pomidorWindow alphaValue] > 0.0) || (!fadeOut && [_pomidorWindow alphaValue] < 1.0)) {
-        [_pomidorWindow setAlphaValue:([_pomidorWindow alphaValue] - (0.2 * fadeOut) + (0.2 * !fadeOut))];
-    } else {
-        [_fadeTimer invalidate];
-        [_fadeTimer release];
-        _fadeTimer = nil;
-        if (fadeOut) {
-            [NSApp deactivate];
-            [_pomidorWindow orderOut:nil];
-        }
-        windowFading = NO;
-    }
-}
-
-
+  
 @end

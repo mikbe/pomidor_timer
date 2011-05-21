@@ -64,25 +64,48 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## To do ##
 
-* Clean up and refactor.
-* Add mute buttons for sounds.
-* Add sound selection from default system sounds?
-* Add images to webpage.
-* Make webpage less ugly.
-* Make minute entry not show blue border when entering text.
+
+**future releases**
+
 * Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
+* Add sound selection from default system sounds? Running out of space on options tab.
+* Make minute entry not show blue border when entering text.
 * Add help me file.
 * Clean up main menu.
 
+**Non-application tasks**
+
+* Add screenshots to webpage.
+* Make webpage less ugly.
+
 ## Change History ##
 
-**2011.05.19** Version: 1.0.3
+**2011.05.21** Version: 1.0.4
+
+Added Features:
+
+* Work period configurable.
+* Tick and alarm sounds can now be muted with a button.
+
+Fixes:
+
+* None (it's perfect right?)
+
+Misc:
+
+* Refactored animations to use proper methodologies.
+* Refactored form hiding.
+* General code cleanup.
+* Rapture proofed.
+
+**2011.05.19** Version: 1.0.3 (internal code release)
 
 Added Features:  
 
 * Growl alerts for alarms (requires Growl installed of course).  
-* Added alarm mute button.  
+* Added mute active alarm button.  
 * When an alarm goes off the dock icon bounces if Pomidor Timer is not the front app (standard Apple design).  
+* Fastforward popup description added.
 
 Fixes:  
 

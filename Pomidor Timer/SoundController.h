@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SoundController : NSObject {
+@interface SoundController : NSObject <NSSoundDelegate> {
 @private
     NSSound         *_sound;
     NSTimer         *_timer;

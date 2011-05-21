@@ -12,7 +12,7 @@
 @private
     
 }
-
+-(void) alarmClicked;
 -(void) growlNotificationWasClicked:(id)clickContext;
 -(void) growlAlarm:(NSString *)message title:(NSString *)title;
 -(void) growlAlertWithClickContext:(NSString *)message title:(NSString *)title;
