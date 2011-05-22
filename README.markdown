@@ -11,7 +11,7 @@ Xcode 4.0 to build it
 
 ## Instructions ##
 
-###Timer Tab:###  
+### Timer Tab: ###  
 
 ![Timer tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerTab.png)  
 
@@ -28,7 +28,7 @@ Press `Reset` to reset work/break cycle.
 This does not reset user configured options.  
 This will also quite any alarms.  
 
-###Options Tab:###  
+### Options Tab: ###  
 
 ![Options tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/OptionsTab.png)  
 
@@ -47,6 +47,8 @@ How loud the timer will tick every second.
 **Alarm volume:**  
 How loud the alarm will be at the end of each work/break cycle.  
 
+**Mute/Unmute sounds**
+This will turn off or on the tick and alarm sounds. Buttons will still make a sound when clicked.
 
 ## What does "Pomidor" mean? ##
 
