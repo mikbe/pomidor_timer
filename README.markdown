@@ -13,7 +13,7 @@ Xcode 4.0 to build it
 
 **Timer Tab:**  
 
-![Timer tab](https://github.com/mikbe/pomidor_timer/tree/master/TimerTab.png)
+![Timer tab](https://github.com/mikbe/pomidor_timer/tree/master/image%20resources/TimerTab.png)
 
 Press `Start` button to start the timer.  
 The start button turns into a pause button that allows you to pause a work or break period.  
