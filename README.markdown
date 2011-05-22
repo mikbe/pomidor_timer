@@ -6,18 +6,20 @@ One of the great things about <a href="http://pomodorotechnique.com">The Pomodor
 
 ## Requirements ##
 
-OS X 10.6 to run it
-Xcode 4.0.1 to build it
+OS X 10.6 to run it  
+Xcode 4.0 to build it  
 
 ## Instructions ##
 
 **Timer Tab:**  
 
+![Timer tab](http://github.com/mikbe/pomidor_timer/tree/master/TimerTab.png)
+
 Press `Start` button to start the timer.  
-The start button turns into a pause button that allows you to pause a work or break period.
+The start button turns into a pause button that allows you to pause a work or break period.  
 
 Press `>>` (fast forward) to finish the break/work period immediatly.  
-This can be useful if you paused a break or work period and forgot to restart the timer.
+This can be useful if you paused a break or work period and forgot to restart the timer.  
 
 Press `Reset` to reset work/break cycle.  
 This does not reset user configured options.  
@@ -26,16 +28,16 @@ This will also quite any alarms.
 **Options Tab:**  
 
 Short break in minutes:   
-After every work period, execpt every fourth one, the timer will be set to this number of minutes. The default is 5 minutes.
+After every work period, execpt every fourth one, the timer will be set to this number of minutes. The default is 5 minutes.  
 
 Long break in minutes:  
-After every forth work period the timer will be set to this value. The default is 15 minutes.
+After every forth work period the timer will be set to this value. The default is 15 minutes.  
 
 Tick volume:  
-How loud the timer will tick every second.
+How loud the timer will tick every second.  
 
 Alarm volume:  
-How loud the alarm will be at the end of each work/break cycle.
+How loud the alarm will be at the end of each work/break cycle.  
 
 
 ## What does "Pomidor" mean? ##

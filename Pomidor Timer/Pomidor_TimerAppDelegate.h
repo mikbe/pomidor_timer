@@ -65,7 +65,7 @@
     
     WorkStateModel          *_state;
     
-    #define                 SECONDS 60
+    #define                 SECONDS 5
     
     NSUserDefaults          *_userSettings;
     NSTextField             *_shortBreakMinutesChanged;
