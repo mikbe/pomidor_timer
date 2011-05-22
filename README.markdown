@@ -64,8 +64,6 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## To do ##
 
-pulse menu status bar text
-
 
 **future releases**
 

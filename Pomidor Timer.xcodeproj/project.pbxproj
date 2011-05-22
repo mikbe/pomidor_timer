@@ -12,9 +12,9 @@
 		322BCD24136A53D400A7301C /* TRANGA__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 322BCD22136A53D400A7301C /* TRANGA__.TTF */; };
 		323B536F1367A2F900CC9AFA /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 323B536E1367A2F900CC9AFA /* README.markdown */; };
 		323B53721367A8C700CC9AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 323B53711367A8C700CC9AFA /* LICENSE */; };
-		3243ADEB13871E910047F353 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3243ADEA13871E910047F353 /* QuartzCore.framework */; };
 		3243ADEE138732470047F353 /* FadeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3243ADED138732470047F353 /* FadeController.m */; };
 		32460E2F13678BF7007D9AC9 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32460E2E13678BF6007D9AC9 /* SoundController.m */; };
+		3297BAD61389B5EC002F236D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3297BAD51389B5EC002F236D /* QuartzCore.framework */; };
 		32BDF81013691CD1000D3EBB /* pomidor.icns in Resources */ = {isa = PBXBuildFile; fileRef = 32BDF80F13691CD1000D3EBB /* pomidor.icns */; };
 		32C1ECBD13686B12009981E2 /* WorkStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C1ECBC13686B12009981E2 /* WorkStateModel.m */; };
 		32C8403F1385DB8F00E76DC6 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 32C8403E1385DB8F00E76DC6 /* Growl Registration Ticket.growlRegDict */; };
@@ -58,12 +58,11 @@
 		322BCD22136A53D400A7301C /* TRANGA__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = TRANGA__.TTF; sourceTree = "<group>"; };
 		323B536E1367A2F900CC9AFA /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		323B53711367A8C700CC9AFA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		3243ADE713871E5E0047F353 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		3243ADEA13871E910047F353 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3243ADEC138732470047F353 /* FadeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeController.h; sourceTree = "<group>"; };
 		3243ADED138732470047F353 /* FadeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeController.m; sourceTree = "<group>"; };
 		32460E2D13678BF6007D9AC9 /* SoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundController.h; sourceTree = "<group>"; };
 		32460E2E13678BF6007D9AC9 /* SoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundController.m; sourceTree = "<group>"; };
+		3297BAD51389B5EC002F236D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		32BDF80F13691CD1000D3EBB /* pomidor.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = pomidor.icns; sourceTree = "<group>"; };
 		32C1ECBB13686B12009981E2 /* WorkStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkStateModel.h; sourceTree = "<group>"; };
 		32C1ECBC13686B12009981E2 /* WorkStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkStateModel.m; sourceTree = "<group>"; };
@@ -92,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3243ADEB13871E910047F353 /* QuartzCore.framework in Frameworks */,
+				3297BAD61389B5EC002F236D /* QuartzCore.framework in Frameworks */,
 				32D157BD133ECB5900D6B7AF /* Cocoa.framework in Frameworks */,
 				32C8404D1385E1E400E76DC6 /* Growl.framework in Frameworks */,
 			);
@@ -131,8 +130,7 @@
 		32D157BB133ECB5900D6B7AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3243ADEA13871E910047F353 /* QuartzCore.framework */,
-				3243ADE713871E5E0047F353 /* Quartz.framework */,
+				3297BAD51389B5EC002F236D /* QuartzCore.framework */,
 				32D157BC133ECB5900D6B7AF /* Cocoa.framework */,
 				32C8404E1385E9B500E76DC6 /* Linked Frameworks */,
 				32D157BE133ECB5900D6B7AF /* Other Frameworks */,
