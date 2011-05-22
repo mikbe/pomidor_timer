@@ -32,6 +32,17 @@
 
 - (void)setForm;
 
+- (void) toggleMenuTextColor;
+- (void) setMenuTextWithColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor text:(NSString *)textString;
+- (void) startMenuAlarm;
+- (void) stopMenuAlarm;
+
+- (void) enableConfigurableControls;
+- (void) disableConfigurableControls;
+- (void) setConfigurableControls:(BOOL)enabled;
+
+- (void)setVolumeButtonState;
+
 @end
 
 @implementation Pomidor_TimerAppDelegate
@@ -40,8 +51,8 @@
 // Init
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
-    NSColor *color = [NSColor whiteColor];
-    NSFont *font = [NSFont fontWithName:@"Silom" size:36.0];
+    NSColor *color  = [NSColor whiteColor];
+    NSFont  *font   = [NSFont fontWithName:@"Silom" size:36.0];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setAlignment:NSCenterTextAlignment];
     
@@ -58,52 +69,26 @@
     [style release];
     [attrString release]; 
     
-    windowFading = NO;
     [_pomidorWindow setDelegate:self];
-    [statusMenu setDelegate:self];
-    [NSApp setDelegate:self];
+    [statusMenu     setDelegate:self];
+    [NSApp          setDelegate:self];
     
-    statusMenuDisplay = [[[NSStatusBar systemStatusBar] statusItemWithLength:45.0] retain];
-    [statusMenuDisplay setMenu:statusMenu];
+    statusMenuText = [[[NSStatusBar systemStatusBar] statusItemWithLength:60.0] retain];
+    [statusMenuText setMenu:statusMenu];
 
     [self restoreUserSettings];
-    _alarmController = [[SoundController alloc] initWithSoundName:@"Blow" volume:[alarmVolume doubleValue]];
-    _tickController  = [[SoundController alloc] initWithSoundName:@"Tick" volume:[tickVolume doubleValue]];
-    _state = [WorkStateModel new];
+    _alarmController    = [[SoundController alloc] initWithSoundName:@"Blow" volume:[alarmVolume doubleValue]];
+    _tickController     = [[SoundController alloc] initWithSoundName:@"Tick" volume:[tickVolume doubleValue]];
+    _state              = [WorkStateModel new];
     [self resetTimer:nil];
     
 }
 
 - (void)awakeFromNib{
-    
-    NSRect buttFrame = [fastForwardButton frame];
-    NSRect viewFrame = [timerTab frame];
-    // There has got to be a better/correct way to get the tracking area of an object.
-    // I should also be turning off the tracking when the timer tab isn't active.
-    NSRect correctedFrame = NSMakeRect(buttFrame.origin.x + 5, 
-                                  (viewFrame.size.height - buttFrame.size.height) - (buttFrame.origin.y + viewFrame.origin.y + 10),
-                                  buttFrame.size.width  + 10, 
-                                  buttFrame.size.height + 5);
-    
+
     [GrowlApplicationBridge setGrowlDelegate:self];
-    _fastForwardTrackingArea = [[NSTrackingArea alloc] 
-                                initWithRect: correctedFrame
-                                options: (NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow )
-                                owner: self
-                                userInfo:nil];
+    _formFadeController         = [[FadeController alloc] initWithNotifyObject:self withSelector:@selector(formFadeDone:) control:_pomidorWindow duration:0.2];
     
-    [timerTab addTrackingArea:_fastForwardTrackingArea];
-    _formFadeController = [[FadeController alloc] initWithNotifyObject:self withSelector:@selector(formFadeDone:) control:_pomidorWindow duration:0.15];
-    _fastForwardFadeController = [[FadeController alloc] initWithControl:fastForwardHintButton duration:0.2];
-    
-}
-
-- (void)mouseEntered:(NSEvent *)theEvent {
-    [_fastForwardFadeController fadeInWithWait:1.25];
-}
-
-- (void)mouseExited:(NSEvent *)theEvent {
-    [_fastForwardFadeController fadeOutWithWait:0.25];
 }
 
 - (void)formFadeDone:(id)fadeOut
@@ -115,19 +100,31 @@
     }
 }
 
+- (void)showWindow {
+    [_pomidorWindow makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
+    [_formFadeController fadeIn];
+}
+
+// fired when user clicks on close window
 - (BOOL)windowShouldClose:(id)sender
 {
+    if (_alarmSounding)
+    { [self muteAlarm:nil]; }
+
     [self toggleWindow:nil];
     return NO;
 }
 
-- (void)showWindow {
-    [_pomidorWindow makeKeyAndOrderFront:self];
-    [NSApp activateIgnoringOtherApps:YES];
+- (void)windowDidMiniaturize:(NSNotification *)notification {
+    //[_formFadeController fadeIn];
 }
 
 // Fired by clicking dock icon
 -(BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)visibleWindows {
+    
+    if (_alarmSounding)
+    { [self muteAlarm:nil]; }
     
     [self toggleWindow:nil];
     return NO;
@@ -136,11 +133,17 @@
 // Fired when application loses focus
 - (void)applicationWillResignActive:(NSNotification *)aNotification
 {
+    if (_alarmSounding)
+    { [self muteAlarm:nil]; }
+
     [_formFadeController toggleFade];
 }
 
 // Fired by clicking on menubar timer
 -(void)menuWillOpen:(NSMenu *)menu {
+    if (_alarmSounding)
+    { [self muteAlarm:nil]; }
+
     [self toggleWindow:nil];
 }
 
@@ -203,7 +206,7 @@
     int mins = _countDown / 60;
     NSString* time = [NSString stringWithFormat:@"%02i:%02i", mins, secs];
     [timerDisplay setStringValue:time];
-    [statusMenuDisplay setTitle:time];    
+    [statusMenuText setTitle:time];    
 }
 
 - (void)setWorkCountDisplay {
@@ -220,7 +223,7 @@
 }
 
 - (IBAction)startPauseTimer:(id)sender {
-    if (startPauseTimerButton.title == @"pause") {
+    if ([startPauseTimerButton state] == NSOffState) {
         [fastForwardButton setEnabled:NO];
         [self pauseTimer];
     }
@@ -239,7 +242,7 @@
 - (void)pauseTimer {
     [_countdownTimer invalidate];
     _countdownTimer = nil;
-    startPauseTimerButton.title = @"start";
+    [startPauseTimerButton setState:NSOffState];
     [_state pause];
 }
 
@@ -247,7 +250,6 @@
     _lastSecond = [[NSDate date] timeIntervalSince1970];
     [self setClock];
     [self muteAlarm:nil];
-    startPauseTimerButton.title = @"pause";
     
     // Special case where I want the bubbles to turn off when you're done with your long break
     if ([_state currentState] == workState_StartWorking && [_state workCount] != 0 && [_state workCount] % 4 == 0) [self resetBubbleIndicators];
@@ -257,6 +259,23 @@
                                            selector:@selector(timerFiredMethod:)
                                            userInfo:nil
                                             repeats:YES];
+}
+
+- (void) enableConfigurableControls{
+    [self setConfigurableControls:YES];
+}
+
+- (void) disableConfigurableControls{
+    [self setConfigurableControls:NO];
+}
+
+- (void) setConfigurableControls:(BOOL)enabled{
+    [muteSoundsButton   setEnabled:enabled];
+    [longBreakMinutes   setEnabled:enabled];
+    [shortBreakMinutes  setEnabled:enabled];
+    [workPeriodMinutes  setEnabled:enabled];
+    if ([muteSoundsButton state] == NSOffState)
+    {   [tickVolume     setEnabled:enabled];    }
 }
 
 - (void)setBubbleIndicators {
@@ -276,8 +295,9 @@
     }
 }
 
--(void)setForm{
+- (void)setForm{
     [fastForwardButton setEnabled:NO];
+    [self setVolumeButtonState];
     [self setStateText];
     [self setWorkCountDisplay];
     [self setBubbleIndicators];
@@ -292,18 +312,35 @@
     [self muteAlarm:nil];
 }
 
--(void)soundAlarm {
+- (void)setVolumeButtonState {
+    [alarmVolume    setEnabled:![muteSoundsButton state]];
+    [tickVolume     setEnabled:![muteSoundsButton state]];
+}
+
+- (void)soundAlarm {
+    _alarmSounding = YES;
+    [self disableConfigurableControls];
     [NSApp requestUserAttention:NSCriticalRequest];
     [self growlAlarm:[[_state stateMessage] stringByAppendingString:@" done"] title:@"Pomidor Timer"];
+    [self pulseFormColor];
+    [self startMenuAlarm];
+    
+    [muteAlarmButton setHidden:NO];
+    [self showWindow];
+    
     if ([muteSoundsButton state] == NSOffState) {
-        [muteAlarmButton setHidden:NO];
         [_alarmController startSoundLoop];
     }
 }
 
 - (IBAction)muteAlarm:(id)sender {
+    _alarmSounding = NO;
+    [self enableConfigurableControls];
+    [[[_pomidorWindow contentView] layer] removeAllAnimations];
+    [[[_pomidorWindow contentView] layer] setFilters:nil];
     [_alarmController stopSoundLoop];
     [muteAlarmButton setHidden:YES];
+    [self stopMenuAlarm];
 }
 
 - (IBAction)alarmVolumeChanged:(id)sender {
@@ -337,10 +374,11 @@
     [_userSettings synchronize];
 }
 
-
 - (IBAction)muteSoundsChanged:(id)sender {
+    [self setVolumeButtonState];
     [_userSettings setInteger:[muteSoundsButton state] forKey:@"muteSoundsState"];
     [_userSettings synchronize];
+
 }
 
 - (void)timerFiredMethod:(NSTimer*)theTimer {
@@ -359,5 +397,79 @@
         }
     }
 }
-  
+
+- (void) pulseFormColor
+{
+    CIFilter *whitePointFilter = [CIFilter filterWithName:@"CIWhitePointAdjust"];
+    [whitePointFilter setDefaults];
+    [whitePointFilter setName:@"whitePointFilter"];
+    
+    CABasicAnimation* whitePointAnimation   = [CABasicAnimation animation];
+    whitePointAnimation.keyPath             = @"filters.whitePointFilter.inputColor";
+    whitePointAnimation.fromValue           = [CIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    whitePointAnimation.toValue             = [CIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.8];
+    whitePointAnimation.duration            = 0.67;
+    whitePointAnimation.autoreverses        = YES;
+    whitePointAnimation.repeatCount         = HUGE_VALF;
+    whitePointAnimation.timingFunction      = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
+
+    [[[_pomidorWindow contentView] layer] setFilters:[NSArray arrayWithObjects: whitePointFilter, nil]];
+    [[[_pomidorWindow contentView] layer] addAnimation:whitePointAnimation forKey:@"whitePointAnimation"];
+}
+
+- (void) startMenuAlarm
+{
+    [self stopMenuAlarm];
+    [self toggleMenuTextColor];
+    _statusMenuPulseTimer = [NSTimer scheduledTimerWithTimeInterval: 0.3
+                                                   target: self
+                                                 selector: @selector(toggleMenuTextColor)
+                                                 userInfo: nil 
+                                                  repeats: YES];
+    
+}
+
+- (void) stopMenuAlarm
+{
+    if (_statusMenuPulseTimer != nil && [_statusMenuPulseTimer isValid])
+    {
+        [_statusMenuPulseTimer invalidate];
+        [_statusMenuPulseTimer release];
+        _statusMenuPulseTimer = nil;
+        
+    }  
+    [statusMenuText setTitle:[timerDisplay stringValue]];
+}
+
+- (void) toggleMenuTextColor
+{
+    // I could read the current attributedTitle setting but it's a lot of work
+    //  through a really poorly designed interface when a simple toggle will do.
+    _toggleMenuToggle = !_toggleMenuToggle;
+    if (_toggleMenuToggle) {
+        [self setMenuTextWithColor:[NSColor redColor] backgroundColor:[NSColor colorWithCalibratedRed:0.3 green:0.3 blue:0.3 alpha:0.2] text:@" Alarm "];
+    } else {
+        [statusMenuText setTitle:[timerDisplay stringValue]];
+    }
+}
+
+
+- (void) setMenuTextWithColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor text:(NSString *)textString
+{
+    NSFont *stringFont = [[NSFontManager sharedFontManager] fontWithFamily:@"Helvetica Neue" traits:0 weight:10 size:14.0];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    backgroundColor, NSBackgroundColorAttributeName,
+                                    textColor, NSForegroundColorAttributeName,
+                                    stringFont, NSFontAttributeName,
+                                    nil];
+    
+    NSAttributedString *attributedString = [[[NSAttributedString alloc]
+                                 initWithString:textString
+                                 attributes:attributes] autorelease];
+    
+    [statusMenuText setAttributedTitle:attributedString];
+    
+}
+
+
 @end

@@ -36,7 +36,6 @@
     
     IBOutlet NSButton       *startPauseTimerButton;  
     IBOutlet NSButton       *fastForwardButton;     
-    IBOutlet NSButton       *fastForwardHintButton;
         
     // Options tab
     IBOutlet NSTextField    *workPeriodMinutes;
@@ -48,44 +47,37 @@
     
     IBOutlet NSButton       *muteSoundsButton;
     
-    
     // Status bar
-    NSStatusItem            *menuBarDisplay;
     IBOutlet NSMenu         *statusMenu;
-    IBOutlet NSMenuItem     *statusMenuDisplay;
+    IBOutlet NSMenuItem     *statusMenuText;
     
 @private
     NSWindow                *_pomidorWindow;
     NSTimer                 *_countdownTimer;
-    NSTimer                 *_fadeTimer;
-    NSTimer                 *_fastForwardHintTimer;
     
-    CABasicAnimation        *_popupAnimation;
-    CABasicAnimation        *_hideFormAnimation;
+    NSTimer                 *_statusMenuPulseTimer;
     
-    int                     _lastSecond;
-    
-    int                     _countDown;
+    int                     _lastSecond; // Remembers the last second the countdown timer was fired incase the timer doesn't get fired e.g. system is busy
+    int                     _countDown;  // count down time in seconds
+
     SoundController         *_alarmController;
     SoundController         *_tickController;
     
     WorkStateModel          *_state;
     
-    BOOL                    windowFading;
-    
     #define                 SECONDS 60
-    
-    NSMenuItem              *_showWindow;
     
     NSUserDefaults          *_userSettings;
     NSTextField             *_shortBreakMinutesChanged;
     NSTextField             *_longBreakMinutesChanged;
     
-    NSTrackingArea          *_fastForwardTrackingArea;
-    
     // Fade controllers
-    FadeController          *_fastForwardFadeController;
     FadeController          *_formFadeController;
+    
+    BOOL                    _toggleMenuToggle;
+
+    BOOL                    _alarmSounding; // look for a refactor
+    
 }
 
 // Timer tab
@@ -110,6 +102,8 @@
 
 // Fader callbacks
 - (void)formFadeDone:(id)fadeOut;
+
+- (void) pulseFormColor;
 
 
 @end

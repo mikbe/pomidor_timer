@@ -53,9 +53,9 @@
 }
 
 - (void)reset {
-    _currentState   = workState_StartWorking;
-    _pausedState    = workState_StartWorking;
-    _workCount      = 0;
+    _currentState       = workState_StartWorking;
+    _pausedState        = workState_StartWorking;
+    _workCount          = 0;
 }
 
 // An alias for incrementState; in some cases it makes more sense symantically

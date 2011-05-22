@@ -64,6 +64,8 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## To do ##
 
+pulse menu status bar text
+
 
 **future releases**
 
@@ -80,23 +82,27 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## Change History ##
 
-**2011.05.21** Version: 1.0.4
+**2011.05.22** Version: 1.0.4
 
 Added Features:
 
 * Work period configurable.
-* Tick and alarm sounds can now be muted with a button.
+* Added tick and alarm sounds mute button.
+* Added visual alarm indicators. (Useful for the hearing impared, colorblind should be able to see a pulsing difference in intensity).
+* Automatically show Pomidor and focus timer when the alarm goes off. (I'm not sure I like this one)
 
 Fixes:
 
 * None (it's perfect right?)
 
-Misc:
+Code stuff:
 
+* Removed minimize button. It didn't really have any purpose.
 * Refactored animations to use proper methodologies.
 * Refactored form hiding.
 * General code cleanup.
-* Rapture proofed.
+* Changed fast forward tooltip to use interface standard. (I liked mine but it was too much outside the norm).
+* Now with 100% less rapture.
 
 **2011.05.19** Version: 1.0.3 (internal code release)
 
