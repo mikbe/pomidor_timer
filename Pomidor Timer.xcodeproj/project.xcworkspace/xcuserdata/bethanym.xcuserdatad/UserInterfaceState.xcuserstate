@@ -16290,9 +16290,9 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>327795958.83610803</real>
-		<string>{0, 1907}</string>
-		<string>{626, 0}</string>
+		<real>327796699.00451702</real>
+		<string>{0, 2109}</string>
+		<string>{4639, 0}</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -30899,9 +30899,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327795958.83297002</real>
-		<string>{0, 1907}</string>
-		<string>{626, 0}</string>
+		<real>327796699.00133699</real>
+		<string>{0, 2109}</string>
+		<string>{4639, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>

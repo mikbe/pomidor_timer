@@ -1,8 +1,8 @@
 # Pomidor Timer #
 
-A simple timer for use in <a href="http://pomodorotechnique.com">The Pomodoro Technique®</a>, a time management system. 
+A simple timer for use in <a href="http://pomodorotechnique.com">The Pomodoro Technique&reg;</a>, a time management system.  
 
-One of the great things about <a href="http://pomodorotechnique.com">The Pomodoro Technique®</a> all the resources needed to use the system are free!  You can download the book and worksheets as PDFs and if you want to support them you can buy stuff from them. That's a great company. 
+One of the great things about <a href="http://pomodorotechnique.com">The Pomodoro Technique&reg;</a> all the resources needed to use the system are free!  You can download the book and worksheets as PDFs and if you want to support them you can buy stuff from them. That's a great company.  
 
 ## Requirements ##
 
@@ -11,32 +11,40 @@ Xcode 4.0 to build it
 
 ## Instructions ##
 
-**Timer Tab:**  
+###Timer Tab:###  
 
-![Timer tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerTab.png)
+![Timer tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerTab.png)  
 
+**Start Button**  
 Press `Start` button to start the timer.  
 The start button turns into a pause button that allows you to pause a work or break period.  
 
+**\>\> Button**  
 Press `>>` (fast forward) to finish the break/work period immediatly.  
 This can be useful if you paused a break or work period and forgot to restart the timer.  
 
+**Reset Button**  
 Press `Reset` to reset work/break cycle.  
 This does not reset user configured options.  
 This will also quite any alarms.  
 
-**Options Tab:**  
+###Options Tab:###  
 
-Short break in minutes:   
+![Options tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/OptionsTab.png)  
+
+**Work period in minutes:**  
+How long each work period should be. The default matches The Pomidor Technique&reg; time of 25 minutes but you can change it to whatever time you use.  For instance when I'm programming I've found my personal work period is better at 35 minutes as this causes fewer breaks when I'm 'in the zone' but is short enough to catch me when I need a mental break.  
+
+**Short break in minutes:**  
 After every work period, execpt every fourth one, the timer will be set to this number of minutes. The default is 5 minutes.  
 
-Long break in minutes:  
+**Long break in minutes:**  
 After every forth work period the timer will be set to this value. The default is 15 minutes.  
 
-Tick volume:  
+**Tick volume:**  
 How loud the timer will tick every second.  
 
-Alarm volume:  
+**Alarm volume:**  
 How loud the alarm will be at the end of each work/break cycle.  
 
 
@@ -89,16 +97,16 @@ Added Features:
 * Work period configurable.
 * Added tick and alarm sounds mute button.
 * Added visual alarm indicators. (Useful for the hearing impared, colorblind should be able to see a pulsing difference in intensity).
-* Automatically show Pomidor and focus timer when the alarm goes off. (I'm not sure I like this one)
+* Automatically shows and focuses Pomidor timer when the alarm goes off. (I'm not sure I like this one but not sure if it should be an option.)
 
 Fixes:
 
 * None (it's perfect right?)
 
-Code stuff:
+Misc:
 
 * Removed minimize button. It didn't really have any purpose.
-* Refactored animations to use proper methodologies.
+* Refactored fade animation to use proper methodologies.
 * Refactored form hiding.
 * General code cleanup.
 * Changed fast forward tooltip to use interface standard. (I liked mine but it was too much outside the norm).
