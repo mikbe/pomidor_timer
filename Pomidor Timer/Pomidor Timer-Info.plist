@@ -6,6 +6,8 @@
 	<string>.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Pomidor Timer</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -21,7 +23,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.4</string>
 	<key>CFBundleSignature</key>
-	<string>????</string>
+	<string>APPL</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>

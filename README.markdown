@@ -1,8 +1,8 @@
 # Pomidor Timer #
 
-A simple timer for use in <a href="http://pomodorotechnique.com">The Pomodoro Technique&reg;</a>, a time management system.  
+A simple timer for use in [The Pomodoro Technique&reg;](http://pomodorotechnique.com), a time management system.  
 
-One of the great things about <a href="http://pomodorotechnique.com">The Pomodoro Technique&reg;</a> all the resources needed to use the system are free!  You can download the book and worksheets as PDFs and if you want to support them you can buy stuff from them. That's a great company.  
+One of the great things about The Pomodoro Technique&reg; company is all the resources needed to use the system are available for free!  You can download the book and worksheets as PDFs and if you really like the system you can support them by purchasing their stuff. That's a great company.  
 
 ## Requirements ##
 
@@ -12,7 +12,7 @@ Xcode 4.0 to build it
 ## Installation Instructions ##
 
 Download and unzip the precompiled dmg file:  
-[PomidorTimer-1.0.4.dmg.zip](https://github.com/mikbe/pomidor_timer/blob/master/installs/PomidorTimer-1.0.4.dmg.zip?raw=true)
+[PomidorTimer-1.0.4.dmg.zip](https://github.com/mikbe/pomidor_timer/blob/master/installs/PomidorTimer-1.0.4.dmg.zip?raw=true)  
 
 Open the dmg file and drag the Pomidor Timer onto the Applications shortcut.  
 
@@ -79,9 +79,12 @@ Copyright© 2011 Mike Bethany - http://mikbe.tk
 
 ## Attributions ##
 
+This product is not approved or endorsed by the Pomodoro Team or [Francesco Cirillo](http://francescocirillo.com).
+[The Pomodoro Technique&reg;](http://pomodorotechnique.com) is a registered trademark belonging to Francesco Cirillo.
+
 Tomato icon is Copyright© 2011 <a href="http://www.artbees.net" target="new">Artbees</a>  
 Licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="new">Attribution-NonCommercial-NoDerivs 3.0</a>  
-Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
+It's part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
 
 ## To do ##
 
@@ -161,3 +164,4 @@ Fixed bugs:
 **2011.04.27**  
 Version 1.0  
 Initial release  
+
