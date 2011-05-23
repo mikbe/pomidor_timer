@@ -20,7 +20,7 @@ Look in your Applications folder and you'll see the app.
 
 ## Usage Instructions ##
 
-The use of the app is very intuitive so should work how you would expect it to.
+The use of the app is, hopefully, very intuitive so should work how you would expect it to.
 
 ### Timer Tab ###
 

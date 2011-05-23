@@ -321,7 +321,7 @@
     _alarmSounding = YES;
     [self disableConfigurableControls];
     [NSApp requestUserAttention:NSCriticalRequest];
-    [self growlAlarm:[[_state stateMessage] stringByAppendingString:@" done"] title:@"Pomidor Timer"];
+    [self growlAlarm:[_state stateMessage] title:@"Pomidor Timer"];
     [self pulseFormColor];
     [self startMenuAlarm];
     
