@@ -71,7 +71,9 @@ There are applications that cost money and do more but I wanted to do one thing 
 
 ## Can I sell it and make billions? ##
 
-No. <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Pomidor Timer</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://mikbe.tk" property="cc:attributionName" rel="cc:attributionURL">Mike Bethany</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/mikbe/pomidor_timer" rel="dct:source">github.com</a>.  
+No.<br>
+<br>
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Pomidor Timer</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://mikbe.tk" property="cc:attributionName" rel="cc:attributionURL">Mike Bethany</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/mikbe/pomidor_timer" rel="dct:source">github.com</a>.  
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>  
 Copyright© 2011 Mike Bethany - http://mikbe.tk  
@@ -79,39 +81,32 @@ Copyright© 2011 Mike Bethany - http://mikbe.tk
 
 ## Attributions ##
 
-This product is not approved or endorsed by the Pomodoro Team or [Francesco Cirillo](http://francescocirillo.com).
-[The Pomodoro Technique&reg;](http://pomodorotechnique.com) is a registered trademark belonging to Francesco Cirillo.
+This product is not approved or endorsed by the Pomodoro Team or [Francesco Cirillo](http://francescocirillo.com).   
+[The Pomodoro Technique&reg;](http://pomodorotechnique.com) is a registered trademark belonging to Francesco Cirillo.  
 
 Tomato icon is Copyright© 2011 <a href="http://www.artbees.net" target="new">Artbees</a>  
 Licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="new">Attribution-NonCommercial-NoDerivs 3.0</a>  
-It's part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
+The tomato icon is part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
 
 ## To do ##
 
-**future releases**
+**future release**
 
-* Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
+* Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet. There will be no integration with other apps in the free version as I'm not going to worry about tightly coupling to some other interface. If you want to write the interface cool, more power to you.
 * Add sound selection from default system sounds? Running out of space on options tab.
-* Make minute entry not show blue border when entering text.
 * Add help me file.
-* Clean up main menu.
-
-**Non-application tasks**
-
-* Add screenshots to webpage.
-* Make webpage less ugly.
 
 ## Change History ##
 
-**2011.05.22**  
+**2011.05.23**  
 Version: 1.0.4  
 
 Added Features:  
 
-* Work period configurable.
+* Work period is now configurable.
 * Added tick and alarm sounds mute button.
-* Added visual alarm indicators. (Useful for the hearing impared, colorblind should be able to see a pulsing difference in intensity).
-* Automatically shows and focuses Pomidor timer when the alarm goes off. (I'm not sure I like this one but not sure if it should be an option.)
+* Added visual alarm indicators. (Useful for the hearing impaired, the colorblind should be able to see a pulsing difference in intensity).
+* Automatically shows and focuses Pomidor Timer when the alarm goes off. (I'm not sure I like this one but also not sure if it should be an option.)
 
 Fixes:  
 
@@ -123,7 +118,7 @@ Misc:
 * Refactored fade animation to use proper methodologies.
 * Refactored form hiding.
 * General code cleanup.
-* Changed fast forward tooltip to use interface standard. (I liked mine but it was too much outside the norm).
+* Changed fast forward tooltip to use interface standard. (I liked mine but it was too outside the norm).
 * Now with 100% less rapture.
 
 **2011.05.19**  
