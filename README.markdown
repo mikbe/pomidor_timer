@@ -71,11 +71,14 @@ The countdown time is displayed on the timer tab but also on the menu bar. You c
 ## Alarms ##
 
 When the alarm goes off the timer will bring make itself the app active pulsing from grey to red:
-![Timer tab alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerAlarm-Animation.gif)
+![timer tab alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerAlarm-Animation.gif)
 
 The menubar display will also flash an alarm:
 
-![Timer tab alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/MenuBarAlarm-Animation.gif)
+![menu bar alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/MenuBarAlarm-Animation.gif)
+
+If you have [Growl](http://growl.info/) installed it will also send a Growl alert.
+![growl alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/GrowlAlarm.png)  
 
 To silence the alarm without starting the next work/break period you can click in the dark grey area where it says "mute alarm", click the menu bar, or the click the application icon in the dock. Clicking on the menu bar or the app icon will hide the app as usual but of course won't start the next period.
 
