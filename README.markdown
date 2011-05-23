@@ -1,8 +1,8 @@
 # Pomidor Timer #
 
-A simple timer for use in [The Pomodoro Technique&reg;](http://pomodorotechnique.com), a time management system.  
+A simple work/break timer for use in your favorite time management system, e.g. [The Pomodoro Technique&reg;](http://pomodorotechnique.com).
 
-One of the great things about The Pomodoro Technique&reg; company is all the resources needed to use the system are available for free!  You can download the book and worksheets as PDFs and if you really like the system you can support them by purchasing their stuff. That's a great company.  
+You start the timer and start working. It keeps track of your work periods and your work cycle so you can concentrate on working and not wasting time with worksheets or losing scraps of paper with tick marks on them.
 
 ## Requirements ##
 
@@ -87,6 +87,8 @@ This product is not approved or endorsed by the Pomodoro Team or [Francesco Ciri
 Tomato icon is Copyright© 2011 <a href="http://www.artbees.net" target="new">Artbees</a>  
 Licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="new">Attribution-NonCommercial-NoDerivs 3.0</a>  
 The tomato icon is part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" target="new">Paradise Fruits Icon Set</a>  
+
+One of the great things about The Pomodoro Technique&reg; company is all the resources needed to use the system are available for free! You can download the book and worksheets as PDFs and if you really like the system you can support them by purchasing their stuff; that's a great company.  
 
 ## To do ##
 
