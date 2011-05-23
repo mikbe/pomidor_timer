@@ -63,7 +63,7 @@ This will turn off or on the tick and alarm sounds. Buttons will still make a so
 
 ## Timer display ##
 
-The countdown time is displayed on the timer tab but also on the menu bar. You can click on the time display to bring the app forward or hide it.
+The countdown time is displayed on the timer tab but also on the menu bar. You can click on the menu bar timer to bring the app forward or hide it.
 
 ![menu bar](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/MenuBar-Example.png)
 
@@ -77,7 +77,7 @@ The menubar display will also flash an alarm:
 
 ![Timer tab alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/MenuBarAlarm-Animation.gif)
 
-To silence the alarm without starting the next work/break period you can click on the `mute alarm` button, the menu bar, or the application icon itself.
+To silence the alarm without starting the next work/break period you can click in the dark grey area where it says "mute alarm", click the menu bar, or the click the application icon in the dock. Clicking on the menu bar or the app icon will hide the app as usual but of course won't start the next period.
 
 ## What does "Pomidor" mean? ##
 
