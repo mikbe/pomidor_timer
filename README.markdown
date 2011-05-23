@@ -11,11 +11,16 @@ Xcode 4.0 to build it
 
 ## Installation Instructions ##
 
+Download and unzip the precompiled dmg file:  
+[PomidorTimer-1.0.4.dmg.zip](https://github.com/mikbe/pomidor_timer/raw/master/installs/PomidorTimer-1.0.4.dmg)
 
+Open the dmg file and drag the Pomidor Timer onto the Applications shortcut.  
+
+Look in your Applications folder and you'll see the app.  
 
 ## Usage Instructions ##
 
-### Timer Tab ###  
+### Timer Tab ###
 
 ![Timer tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerTab.png)  
 
@@ -32,7 +37,7 @@ Press `Reset` to reset work/break cycle.
 This does not reset user configured options.  
 This will also quite any alarms.  
 
-### Options Tab ###  
+### Options Tab ###
 
 ![Options tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/OptionsTab.png)  
 
@@ -51,8 +56,8 @@ How loud the timer will tick every second.
 **Alarm volume:**  
 How loud the alarm will be at the end of each work/break cycle.  
 
-**Mute/Unmute sounds**
-This will turn off or on the tick and alarm sounds. Buttons will still make a sound when clicked.
+**Mute/Unmute sounds**  
+This will turn off or on the tick and alarm sounds. Buttons will still make a sound when clicked.  
 
 ## What does "Pomidor" mean? ##
 
@@ -80,7 +85,6 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## To do ##
 
-
 **future releases**
 
 * Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet.
@@ -96,20 +100,21 @@ Part of the beautiful <a href="http://www.artbees.net/paradise-fruits-icon-set" 
 
 ## Change History ##
 
-**2011.05.22** Version: 1.0.4
+**2011.05.22**  
+Version: 1.0.4  
 
-Added Features:
+Added Features:  
 
 * Work period configurable.
 * Added tick and alarm sounds mute button.
 * Added visual alarm indicators. (Useful for the hearing impared, colorblind should be able to see a pulsing difference in intensity).
 * Automatically shows and focuses Pomidor timer when the alarm goes off. (I'm not sure I like this one but not sure if it should be an option.)
 
-Fixes:
+Fixes:  
 
 * None (it's perfect right?)
 
-Misc:
+Misc:  
 
 * Removed minimize button. It didn't really have any purpose.
 * Refactored fade animation to use proper methodologies.
@@ -118,7 +123,8 @@ Misc:
 * Changed fast forward tooltip to use interface standard. (I liked mine but it was too much outside the norm).
 * Now with 100% less rapture.
 
-**2011.05.19** Version: 1.0.3 (internal code release)
+**2011.05.19**  
+Version: 1.0.3 (internal code release)  
 
 Added Features:  
 
@@ -131,14 +137,16 @@ Fixes:
 
 * Window does not hide when it was mearly inactive. It just becomes visible. This stops the annoying hiding of the window when you just wanted to view it.
 
-**2011.04.28** Version: 1.0.2  
+**2011.04.28**  
+Version: 1.0.2  
 
-Fixed bugs:
+Fixed bugs:  
 
 * Missing font
 * Window disappeared forever if you pressed icon or menu display too fast.
 
-**2011.04.28** Version: 1.0.1  
+**2011.04.28**  
+Version: 1.0.1  
 
 * Changed tick sound to actual clock tick.
 * Changed alarm sound to avoid confusion with message alerts.
@@ -150,7 +158,6 @@ Fixed bugs:
 
 * Sound volumes loaded after saved user settings.
 
-
-
-2011.04.27 Version 1.0
-Initial release
+**2011.04.27**  
+Version 1.0  
+Initial release  
