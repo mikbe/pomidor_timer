@@ -15467,7 +15467,7 @@
 		<string>IDEWindowToolbarIsVisible</string>
 		<string>IDEActiveWorkspaceTabController</string>
 		<string>IDEWorkspaceTabController_695E3028-9591-4D9E-81A8-04FA08E1FF35</string>
-		<string>{{0, 1}, {960, 1177}}</string>
+		<string>{{0, 1}, {1920, 1177}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -16617,7 +16617,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>690</real>
+		<real>1650</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -17163,7 +17163,7 @@
 			</array>
 		</dict>
 		<string>ConsoleArea</string>
-		<real>439</real>
+		<real>1399</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -17262,7 +17262,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>439</real>
+		<real>1399</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -17573,7 +17573,7 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>327801498.759345</real>
+		<real>327802137.750458</real>
 		<string>{13185, 2065}</string>
 		<string>{11500, 0}</string>
 		<string>-muteSoundsChanged:</string>
@@ -17610,7 +17610,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {690, 1101}}</string>
+		<string>{{0, 0}, {1650, 1101}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -30489,7 +30489,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327801498.75620198</real>
+		<real>327802137.747428</real>
 		<string>{13185, 2065}</string>
 		<string>{11500, 0}</string>
 		<dict>
@@ -31035,19 +31035,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>321</integer>
+					<integer>1084</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>322</integer>
+					<integer>1085</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>323</integer>
+					<integer>1086</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>324</integer>
+					<integer>1087</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
@@ -31070,8 +31070,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327798347.09742302</real>
-		<string>{0, 2052}</string>
+		<real>327802132.720496</real>
+		<string>{0, 2274}</string>
 		<string>{538, 0}</string>
 		<dict>
 			<key>$class</key>
@@ -35137,7 +35137,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>2219</integer>
+					<integer>2220</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -35145,7 +35145,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>2222</integer>
+					<integer>2223</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -35201,6 +35201,24 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
+				<integer>2219</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/bethanym/development/mikbe/pomidor_timer/README.markdown</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>119</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
 				<integer>1578</integer>
 			</dict>
 		</dict>
@@ -35218,7 +35236,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>2220</integer>
+				<integer>2222</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/bethanym/development/mikbe/pomidor_timer/Pomidor%20Timer/SoundController.m</string>
@@ -35239,24 +35257,6 @@
 				<integer>2045</integer>
 			</dict>
 		</dict>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>119</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>2223</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/bethanym/development/mikbe/pomidor_timer/README.markdown</string>
 		<dict>
 			<key>$class</key>
 			<dict>

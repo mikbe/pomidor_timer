@@ -12,7 +12,7 @@ Xcode 4.0 to build it
 ## Installation Instructions ##
 
 Download and unzip the precompiled dmg file:  
-[PomidorTimer-1.0.4.dmg.zip](https://github.com/mikbe/pomidor_timer/raw/master/installs/PomidorTimer-1.0.4.dmg)
+[PomidorTimer-1.0.4.dmg.zip](https://github.com/mikbe/pomidor_timer/blob/master/installs/PomidorTimer-1.0.4.dmg.zip?raw=true)
 
 Open the dmg file and drag the Pomidor Timer onto the Applications shortcut.  
 
