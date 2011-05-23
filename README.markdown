@@ -98,10 +98,10 @@ There are applications that cost money and do more but I wanted to do one thing 
 
 No.<br>
 <br>
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Pomidor Timer</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://mikbe.tk" property="cc:attributionName" rel="cc:attributionURL">Mike Bethany</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/mikbe/pomidor_timer" rel="dct:source">github.com</a>.  
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Pomidor Timer</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://mikbe.tk" property="cc:attributionName" rel="cc:attributionURL">Mike Bethany</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.  
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>  
-Copyright© 2011 Mike Bethany - http://mikbe.tk  
+Copyright© 2011 <a href="http://mikbe.tk">Mike Bethany</a>  
 
 ## The Pomodoro Technique&reg; ##
 
