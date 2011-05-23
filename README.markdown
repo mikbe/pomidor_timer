@@ -20,6 +20,8 @@ Look in your Applications folder and you'll see the app.
 
 ## Usage Instructions ##
 
+The use of the app is very intuitive so should work how you would expect it to.
+
 ### Timer Tab ###
 
 ![Timer tab](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerTab.png)  
@@ -59,6 +61,24 @@ How loud the alarm will be at the end of each work/break cycle.
 **Mute/Unmute sounds**  
 This will turn off or on the tick and alarm sounds. Buttons will still make a sound when clicked.  
 
+## Timer display ##
+
+The countdown time is displayed on the timer tab but also on the menu bar. You can click on the time display to bring the app forward or hide it.
+
+![menu bar](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/MenuBar-Example.png)
+
+
+## Alarms ##
+
+When the alarm goes off the timer will bring make itself the app active pulsing from grey to red:
+![Timer tab alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/TimerAlarm-Animation.gif)
+
+The menubar display will also flash an alarm:
+
+![Timer tab alarm](https://github.com/mikbe/pomidor_timer/raw/master/image%20resources/MenuBarAlarm-Animation.gif)
+
+To silence the alarm without starting the next work/break period you can click on the `mute alarm` button, the menu bar, or the application icon itself.
+
 ## What does "Pomidor" mean? ##
 
 Pomidor is Polish for tomato. It's a play on the Italian word for tomato, pomodoro, so I don't have to worry about trademark/copyright infringment.  
@@ -96,7 +116,7 @@ The tomato icon is part of the beautiful <a href="http://www.artbees.net/paradis
 
 **future release**
 
-* Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet. There will be no integration with other apps in the free version as I'm not going to worry about tightly coupling to some other interface. If you want to write the interface cool, more power to you.
+* Automatic, but simple, logging of actions so you can just do your work then later use the log for reference when entering data in your worksheet. There will be no integration with other apps in the free version as I'm not going to worry about tightly coupling to some other interface. If you want it to work with iCal cool, write the code to do it.
 * Add sound selection from default system sounds? Running out of space on options tab.
 * Add help me file.
 
