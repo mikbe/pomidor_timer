@@ -90,9 +90,9 @@ Pomidor is Polish for tomato. It's a play on the Italian word for tomato, pomodo
 
 ## Why is it free? ##
 
-They provide the resources for free so I thought I'd provide this simple timer for free.   
+The Pomodoro team provide the resources for free so I thought I'd provide this simple timer for free.  
 
-There are applications that cost money and do more but I wanted to do one thing and do it well; be a timer.
+There are applications that cost money and do more but I wanted to do one thing and do it well; be a timer.  
 
 ## Can I sell it and make billions? ##
 
